@@ -1,16 +1,28 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { onMounted, ref, watch } from 'vue'
 import { RouterLink } from 'vue-router'
-import { formatDate, getPost } from '../blog/posts'
+import { formatDate, type BlogPost } from '../blog/posts'
+import { fetchPost } from '../blog/api'
 
 const props = defineProps<{ slug: string }>()
-const post = computed(() => getPost(props.slug))
+const post = ref<BlogPost | null>(null)
+const loaded = ref(false)
+
+async function load(): Promise<void> {
+  loaded.value = false
+  post.value = (await fetchPost(props.slug)) ?? null
+  loaded.value = true
+}
+
+onMounted(load)
+watch(() => props.slug, load)
 </script>
 
 <template>
   <section class="section">
     <div class="wrap blog-wrap">
-      <template v-if="post">
+      <p v-if="!loaded">Loading article&hellip;</p>
+      <template v-else-if="post">
         <p><RouterLink to="/blog" class="blog-back">&larr; All articles</RouterLink></p>
         <figure v-if="post.image" class="blog-hero">
           <img :src="post.image" :alt="`Illustrative image for: ${post.title}`" class="blog-hero-image" />

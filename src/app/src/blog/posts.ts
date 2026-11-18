@@ -1,8 +1,14 @@
-// .EXE blog posts.
+// .EXE blog posts — FALLBACK COPY.
 //
-// TO ADD A NEW ARTICLE: append one object to `posts` below (newest first).
-// That's it — the list page at /blog and the article page at /blog/:slug
-// pick it up automatically. Fields:
+// The live blog now reads from the Airtable Posts table via GET /api/blog
+// (see README.md in this folder). This file is only used when the API is
+// unreachable, so the blog never renders blank — the list and article views
+// fall back to the posts below on any fetch error.
+//
+// TO PUBLISH A NEW ARTICLE: add a row to the Airtable Posts table (no code,
+// no deploy — see README.md). Then ALSO append the article here, newest
+// first, so the fallback stays current: if Airtable is ever down, readers
+// still see the latest articles. Fields:
 //   slug    — the URL part after /blog/ (lowercase, hyphens, no spaces)
 //   title   — the article headline
 //   date    — ISO date, e.g. '2026-11-18'
