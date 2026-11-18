@@ -7,9 +7,11 @@ using Microsoft.Extensions.Configuration;
 namespace Dotexe.Api;
 
 /// <summary>
-/// Minimal Airtable client: creates lead records via the Airtable REST API.
+/// Minimal Airtable client: creates lead records and lists blog posts via the
+/// Airtable REST API.
 /// Config comes from environment variables only — never from the repo.
-/// Mirrors Norgard's AirtableStore send/throttle shape, cut down to one call.
+/// Mirrors Norgard's AirtableStore send/throttle shape, cut down to the calls
+/// this API needs.
 /// </summary>
 public sealed class AirtableClient(IHttpClientFactory factory, IConfiguration configuration)
 {
@@ -20,6 +22,7 @@ public sealed class AirtableClient(IHttpClientFactory factory, IConfiguration co
     private string ApiKey => Required("AIRTABLE_API_KEY");
     private string BaseId => Required("AIRTABLE_BASE_ID");
     private string Table => configuration["AIRTABLE_LEADS_TABLE"] is { Length: > 0 } value ? value : "Leads";
+    private string PostsTable => configuration["AIRTABLE_POSTS_TABLE"] is { Length: > 0 } value ? value : "Posts";
 
     private string Required(string key) => configuration[key] is { Length: > 0 } value
         ? value
@@ -43,7 +46,30 @@ public sealed class AirtableClient(IHttpClientFactory factory, IConfiguration co
         return id;
     }
 
-    private async Task<JsonObject> SendAsync(HttpMethod method, string url, JsonObject payload, CancellationToken ct)
+    /// <summary>
+    /// Lists every record in the Posts table, following Airtable pagination.
+    /// The caller filters by Status and sorts; the table stays small (a few
+    /// posts a week), so one list call per cache refresh is the whole cost.
+    /// </summary>
+    public async Task<JsonObject> ListPostsAsync(CancellationToken ct)
+    {
+        var all = new JsonArray();
+        string? offset = null;
+        do
+        {
+            var url = $"https://api.airtable.com/v0/{Uri.EscapeDataString(BaseId)}/{Uri.EscapeDataString(PostsTable)}?pageSize=100";
+            if (offset is not null) url += $"&offset={Uri.EscapeDataString(offset)}";
+            var page = await GetAsync(url, ct);
+            if (page["records"] is JsonArray records)
+                foreach (var record in records) all.Add(record?.DeepClone());
+            offset = page["offset"] is JsonValue value && value.TryGetValue<string>(out var next) ? next : null;
+        } while (offset is not null);
+        return new JsonObject { ["records"] = all };
+    }
+
+    private Task<JsonObject> GetAsync(string url, CancellationToken ct) => SendAsync(HttpMethod.Get, url, null, ct);
+
+    private async Task<JsonObject> SendAsync(HttpMethod method, string url, JsonObject? payload, CancellationToken ct)
     {
         await gate.WaitAsync(ct);
         try
@@ -55,7 +81,7 @@ public sealed class AirtableClient(IHttpClientFactory factory, IConfiguration co
 
             using var request = new HttpRequestMessage(method, url);
             request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", ApiKey);
-            request.Content = JsonContent.Create(payload);
+            if (payload is not null) request.Content = JsonContent.Create(payload);
             using var response = await http.SendAsync(request, HttpCompletionOption.ResponseHeadersRead, ct);
             if (response.StatusCode == HttpStatusCode.TooManyRequests)
             {
