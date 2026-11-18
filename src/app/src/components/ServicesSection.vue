@@ -3,18 +3,17 @@
     <div class="wrap">
       <p class="eyebrow">What we do</p>
       <h2>Software built around your business, not the other way around.</h2>
-      <p class="section-intro">We build custom business software, automate workflows, and connect the systems your team relies on.</p>
+      <p class="section-intro">Custom business software, automation, and integrations &mdash; built around the tools your team already uses.</p>
       <div class="grid-2">
         <article class="card service">
           <div class="service-art"><img src="/assets/service-dashboard.png" alt="Illustration of a software dashboard" /></div>
           <h3>Custom Software</h3>
-          <p>Business applications designed around your actual workflows &mdash; internal tools, dashboards, customer portals, and job management.</p>
-          <p>When spreadsheets and off-the-shelf software aren&rsquo;t quite right, we build something around the way your business actually works.</p>
+          <p>Business applications built around your workflows &mdash; tools, dashboards, portals, job management. When spreadsheets and off-the-shelf software don&rsquo;t fit, we build what does.</p>
         </article>
         <article class="card service">
           <div class="service-art"><img src="/assets/service-workflow.png" alt="Illustration of documents flowing through a workflow" /></div>
           <h3>Automation</h3>
-          <p>Eliminate repetitive work and connect the systems you already use.</p>
+          <p>Repetitive work, gone &mdash; and the systems you already use, connected.</p>
           <ul>
             <li>Automated notifications &amp; reminders</li>
             <li>Invoice &amp; payment workflows</li>
@@ -25,14 +24,12 @@
         <article class="card service">
           <div class="service-art"><img src="/assets/service-integrations.png" alt="Illustration of people and systems connected together" /></div>
           <h3>Integrations</h3>
-          <p>Make your CRM, documents, payments, communications, and other systems work together.</p>
-          <p>No more re-typing between apps, no more wondering which copy is current. Your systems share the same information, automatically.</p>
+          <p>Your CRM, documents, payments, and communications share the same information automatically. No re-typing, no wondering which copy is current.</p>
         </article>
         <article class="card service">
           <div class="service-art"><img src="/assets/service-videocall.png" alt="Illustration of two people in a video call" /></div>
           <h3>Technical Consulting</h3>
-          <p>Help making better technology decisions when the path forward is unclear.</p>
-          <p>That includes the bill itself: many businesses are stuck in never-ending monthly subscriptions. We help you move to cost-effective apps &mdash; and make them work for you.</p>
+          <p>Clear advice when the path isn&rsquo;t. Including the bill: we help businesses escape endless subscriptions for cost-effective apps that work.</p>
         </article>
       </div>
 

@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
+import { RouterLink } from 'vue-router'
 
 const navOpen = ref(false)
 
@@ -11,16 +12,20 @@ function closeNav(): void {
 <template>
   <header class="site-header">
     <div class="wrap header-inner">
-      <a class="logo" href="#top" aria-label=".EXE home"><img src="/logo-icon.png" alt="" width="40" height="40" /><span class="logo-mark">.exe</span></a>
+      <RouterLink class="logo" to="/" aria-label=".EXE home" @click="closeNav"
+        ><img src="/logo-icon.png" alt="" width="40" height="40" /><span class="logo-mark">.exe</span></RouterLink
+      >
       <nav class="site-nav" :class="{ open: navOpen }" aria-label="Main navigation">
-        <a href="#services" @click="closeNav">Services</a>
-        <a href="#how" @click="closeNav">How it works</a>
-        <a href="#work" @click="closeNav">Our work</a>
-        <a href="#about" @click="closeNav">About</a>
-        <a href="#faq" @click="closeNav">FAQ</a>
+        <RouterLink :to="{ path: '/', hash: '#services' }" @click="closeNav">Services</RouterLink>
+        <RouterLink :to="{ path: '/', hash: '#how' }" @click="closeNav">How it works</RouterLink>
+        <RouterLink :to="{ path: '/', hash: '#work' }" @click="closeNav">Our work</RouterLink>
+        <RouterLink :to="{ path: '/', hash: '#about' }" @click="closeNav">About</RouterLink>
+        <RouterLink :to="{ path: '/', hash: '#faq' }" @click="closeNav">FAQ</RouterLink>
+        <RouterLink to="/blog" @click="closeNav">Blog</RouterLink>
+        <RouterLink to="/contact" @click="closeNav">Contact</RouterLink>
       </nav>
       <div class="header-actions">
-        <a class="btn btn-primary btn-small" href="#contact">Book a free call</a>
+        <RouterLink class="btn btn-primary btn-small" to="/contact">Book a free call</RouterLink>
         <button
           class="nav-toggle"
           :aria-expanded="navOpen ? 'true' : 'false'"

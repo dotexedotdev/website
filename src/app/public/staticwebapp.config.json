@@ -1,1 +1,1 @@
-{"platform":{"apiRuntime":"dotnet-isolated:10.0"}}
+{"navigationFallback":{"exclude":["/api/*","/assets/*","/logo-icon.png","/logo-lockup.png","/adam-photo.png"],"rewrite":"/index.html"},"platform":{"apiRuntime":"dotnet-isolated:10.0"}}
