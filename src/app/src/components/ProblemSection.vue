@@ -5,7 +5,7 @@
       <div class="grid-3">
         <article class="card">
           <h3>The same information, three times</h3>
-          <p>The quote&rsquo;s in one app, the invoice in another, the job in a spreadsheet. Your team re-types, re-checks, and hopes nothing gets lost.</p>
+          <p>The quote&rsquo;s in one app, the invoice in another, the job in a spreadsheet &mdash; re-typed, re-checked, sometimes lost.</p>
         </article>
         <article class="card">
           <h3>Software you pay for &mdash; and fight</h3>

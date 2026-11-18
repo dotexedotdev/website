@@ -8,9 +8,9 @@
       <article class="card case-study">
         <p class="case-tag">Property restoration &middot; Featured project</p>
         <h3>Norgard Restoration</h3>
-        <p class="case-before"><strong>Before:</strong> Jon left a larger restoration company to start his own &mdash; expertise and clients, but no systems. Jobs ran on a paper docket, photos and signed documents in desktop folders, QuickBooks on the side. <em>&ldquo;Messy and not efficient.&rdquo;</em></p>
+        <p class="case-before"><strong>Before:</strong> Jon left a larger restoration company to start his own &mdash; expertise and clients, but no systems. Jobs ran on a paper docket, photos and documents in desktop folders, QuickBooks on the side. <em>&ldquo;Messy and not efficient.&rdquo;</em></p>
         <p><strong>What we built:</strong> one system for the whole job. Enquiries become leads, a pipeline from inspection to paid, electronic authorizations and signatures, and a trades portal for site photos and notes &mdash; by job and room.</p>
-        <p><strong>Where it stands:</strong> live now &mdash; website, job management, and signatures. QuickBooks and Xactimate are on the roadmap; the first version got the daily work out of paper and folders.</p>
+        <p><strong>Where it stands:</strong> live now &mdash; website, job management, and signatures. QuickBooks and Xactimate are on the roadmap.</p>
         <figure class="case-shot">
           <img src="/assets/work-norgard.png" alt="Screenshot of the Norgard Restoration job management system" />
         </figure>

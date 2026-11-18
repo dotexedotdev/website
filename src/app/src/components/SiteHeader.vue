@@ -21,7 +21,6 @@ function closeNav(): void {
         <RouterLink to="/services" @click="closeNav">Services</RouterLink>
         <RouterLink to="/support" @click="closeNav">Support</RouterLink>
         <RouterLink to="/blog" @click="closeNav">Blog</RouterLink>
-        <RouterLink to="/contact" @click="closeNav">Contact</RouterLink>
       </nav>
       <div class="header-actions">
         <RouterLink class="btn btn-primary btn-small" to="/contact">Book a free call</RouterLink>

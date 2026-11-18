@@ -7,7 +7,7 @@ import { reviews } from '../reviews/reviews'
     <div class="wrap">
       <p class="eyebrow">Reviews</p>
       <h2>What our clients think.</h2>
-      <p class="section-intro">Real words from real businesses we&rsquo;ve helped. We&rsquo;re collecting reviews now &mdash; these slots fill in as clients share their experience.</p>
+      <p class="section-intro">Real words from real businesses. We&rsquo;re collecting reviews now &mdash; these slots fill in as clients share their experience.</p>
       <div class="grid-3">
         <article
           v-for="(review, i) in reviews"

@@ -1,14 +1,18 @@
+<script setup lang="ts">
+import { RouterLink } from 'vue-router'
+</script>
+
 <template>
   <section class="section" id="services">
     <div class="wrap">
       <p class="eyebrow">What we do</p>
       <h2>Software built around your business, not the other way around.</h2>
-      <p class="section-intro">Custom business software, automation, and integrations &mdash; built around the tools your team already uses.</p>
+      <p class="section-intro">Custom software, automation, and integrations &mdash; built around the tools you already use.</p>
       <div class="grid-2">
         <article class="card service">
           <div class="service-art"><img src="/assets/service-dashboard.png" alt="Illustration of a software dashboard" /></div>
           <h3>Custom Software</h3>
-          <p>Business applications built around your workflows &mdash; tools, dashboards, portals, job management. When spreadsheets and off-the-shelf software don&rsquo;t fit, we build what does.</p>
+          <p>Applications built around your workflows &mdash; tools, dashboards, portals, job management. When off-the-shelf doesn&rsquo;t fit, we build what does.</p>
         </article>
         <article class="card service">
           <div class="service-art"><img src="/assets/service-workflow.png" alt="Illustration of documents flowing through a workflow" /></div>
@@ -29,9 +33,11 @@
         <article class="card service">
           <div class="service-art"><img src="/assets/service-videocall.png" alt="Illustration of two people in a video call" /></div>
           <h3>Technical Consulting</h3>
-          <p>Clear advice when the path isn&rsquo;t. Including the bill: we help businesses escape endless subscriptions for cost-effective apps that work.</p>
+          <p>Clear advice when the path isn&rsquo;t. Including the bill: we help businesses escape endless subscriptions for apps that work.</p>
         </article>
       </div>
+
+      <p class="section-more"><RouterLink to="/services">See all services &rarr;</RouterLink></p>
 
       <div class="tech-logos" aria-label="Technologies we work with">
         <div class="tech-logo"><img src="/assets/microsoft.svg" alt="" /><span>Microsoft 365</span></div>

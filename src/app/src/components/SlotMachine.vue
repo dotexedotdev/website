@@ -1,10 +1,25 @@
 <script setup lang="ts">
-import { computed, onMounted, onUnmounted, ref } from 'vue'
+import { nextTick, onMounted, onUnmounted, ref } from 'vue'
+
+interface System {
+  name: string
+  logo?: string
+}
 
 interface Pair {
   left: string
   right: string
   explainer: string
+}
+
+// Real logo files that exist in public/assets — only these two of the
+// systems below have one in the repo. Every other system renders a clean
+// text tile; logos are never invented or drawn.
+const LOGOS: Record<string, string> = {
+  Gmail: '/assets/logo-gmail.png',
+  // The Google "G" brand mark, used for the Google product in this pair;
+  // the tile still carries the "Google Calendar" caption so it's unambiguous.
+  'Google Calendar': '/assets/logo-google.png',
 }
 
 const pairs: Pair[] = [
@@ -22,12 +37,19 @@ const pairs: Pair[] = [
   { left: 'Shopify', right: 'Xero', explainer: 'From checkout to tax time, the numbers take care of themselves.' },
 ]
 
-// Every system that appears in a pair — the reels cycle through these.
-const pool = [...new Set(pairs.flatMap((p) => [p.left, p.right]))]
+// Every system that appears in a pair — the reels scroll through these.
+const pool: System[] = [...new Set(pairs.flatMap((p) => [p.left, p.right]))].map((name) => ({
+  name,
+  logo: LOGOS[name],
+}))
 const N = pool.length
 
-const leftIdx = ref(pool.indexOf('Shopify'))
-const rightIdx = ref(pool.indexOf('QuickBooks'))
+// The strip repeats the pool 3 times so a spin always has runway: the reel
+// rests in the middle copy and spins forward into the last copy, then snaps
+// back to the identical middle position (invisibly, with no transition).
+const REPS = 3
+const strip: System[] = Array.from({ length: REPS }, () => pool).flat()
+
 const currentPair = ref<Pair>(pairs[0] as Pair)
 const pairIndex = ref(0)
 const spinning = ref(false)
@@ -35,19 +57,48 @@ const explainerVisible = ref(true)
 const paused = ref(false)
 const reduced = ref(false)
 
-const leftName = computed(() => pool[leftIdx.value])
-const rightName = computed(() => pool[rightIdx.value])
-const leftPrev = computed(() => pool[(leftIdx.value - 1 + N) % N])
-const leftNext = computed(() => pool[(leftIdx.value + 1) % N])
-const rightPrev = computed(() => pool[(rightIdx.value - 1 + N) % N])
-const rightNext = computed(() => pool[(rightIdx.value + 1) % N])
+// Per-reel scroll state. `center` is the strip index sitting on the payline
+// (middle row); `y` is the strip's translateY in px; `dur` is the transition
+// length in ms (0 = snap instantly, no animation).
+const tileH = ref(64)
+
+/** translateY that puts strip index `i` on the payline (middle row). */
+function yFor(i: number): number {
+  return -(i * tileH.value) + tileH.value
+}
+
+const leftCenter = ref(N + pool.findIndex((s) => s.name === 'Shopify'))
+const rightCenter = ref(N + pool.findIndex((s) => s.name === 'QuickBooks'))
+// Start on the payline so the first paint is already settled (no flash).
+const leftY = ref(yFor(leftCenter.value))
+const rightY = ref(yFor(rightCenter.value))
+const leftDur = ref(0)
+const rightDur = ref(0)
+const leftBlur = ref(false)
+const rightBlur = ref(false)
+
+const leftReelEl = ref<HTMLElement | null>(null)
 
 let nextTimer: number | undefined
+let resizeTimer: number | undefined
 
 function sleep(ms: number): Promise<void> {
   return new Promise((resolve) => {
     window.setTimeout(resolve, ms)
   })
+}
+
+function measureTile(): void {
+  const tile = leftReelEl.value?.querySelector('.slot-tile') as HTMLElement | null
+  if (tile && tile.offsetHeight > 0) tileH.value = tile.offsetHeight
+}
+
+/** Re-center both reels instantly (no animation) — used on mount and resize. */
+function snapToCenters(): void {
+  leftDur.value = 0
+  rightDur.value = 0
+  leftY.value = yFor(leftCenter.value)
+  rightY.value = yFor(rightCenter.value)
 }
 
 function clearNextTimer(): void {
@@ -65,27 +116,54 @@ function scheduleNext(delayMs: number): void {
   }, delayMs)
 }
 
-/** Run one reel: cycle through names, slowing down, landing exactly on target. */
-async function runReel(side: 'left' | 'right', target: string, startDelayMs: number): Promise<void> {
+/**
+ * Scroll one reel to a system, like a real slot machine: the strip scrolls
+ * fast, blurs while it's moving, then eases out and lands on the target.
+ * The target sits in the last copy of the strip so the reel always scrolls
+ * forward; once it lands, it snaps back to the identical middle-copy
+ * position with no transition, ready for the next spin.
+ */
+async function scrollReel(
+  side: 'left' | 'right',
+  target: string,
+  startDelayMs: number,
+  durationMs: number,
+): Promise<void> {
   await sleep(startDelayMs)
-  const targetIdx = pool.indexOf(target)
+  const targetIdx = pool.findIndex((s) => s.name === target)
   if (reduced.value) {
-    if (side === 'left') leftIdx.value = targetIdx
-    else rightIdx.value = targetIdx
+    if (side === 'left') {
+      leftCenter.value = N + targetIdx
+    } else {
+      rightCenter.value = N + targetIdx
+    }
+    snapToCenters()
     return
   }
-  // Tick delays: fast, then slower, then slow — 23 ticks in total.
-  const delays = [...Array(14).fill(70), ...Array(6).fill(130), ...Array(3).fill(220)]
-  // Start the reel so that the final tick lands exactly on the target.
-  let idx = (((targetIdx - delays.length) % N) + N) % N
-  if (side === 'left') leftIdx.value = idx
-  else rightIdx.value = idx
-  for (const delay of delays) {
-    await sleep(delay)
-    idx = (idx + 1) % N
-    if (side === 'left') leftIdx.value = idx
-    else rightIdx.value = idx
+  const landing = 2 * N + targetIdx
+  const setBlur = (v: boolean): void => {
+    if (side === 'left') leftBlur.value = v
+    else rightBlur.value = v
   }
+  const setDur = (v: number): void => {
+    if (side === 'left') leftDur.value = v
+    else rightDur.value = v
+  }
+  const setY = (v: number): void => {
+    if (side === 'left') leftY.value = v
+    else rightY.value = v
+  }
+  setBlur(true)
+  setDur(durationMs)
+  setY(yFor(landing))
+  // Sharpen as the reel decelerates into the landing.
+  window.setTimeout(() => setBlur(false), Math.round(durationMs * 0.65))
+  await sleep(durationMs + 60)
+  // Snap back to the middle copy — same tiles, so the jump is invisible.
+  setDur(0)
+  setY(yFor(landing - N))
+  if (side === 'left') leftCenter.value = landing - N
+  else rightCenter.value = landing - N
 }
 
 async function spin(): Promise<void> {
@@ -102,7 +180,10 @@ async function spin(): Promise<void> {
   const nextPair = pairs[nextIndex] as Pair
 
   // Left reel settles first, right reel a beat later.
-  await Promise.all([runReel('left', nextPair.left, 0), runReel('right', nextPair.right, 500)])
+  await Promise.all([
+    scrollReel('left', nextPair.left, 0, 1500),
+    scrollReel('right', nextPair.right, 350, 1900),
+  ])
 
   currentPair.value = nextPair
   pairIndex.value = nextIndex
@@ -121,14 +202,29 @@ function onLeave(): void {
   if (!spinning.value) scheduleNext(2500)
 }
 
+function onResize(): void {
+  window.clearTimeout(resizeTimer)
+  resizeTimer = window.setTimeout(() => {
+    measureTile()
+    snapToCenters()
+  }, 150)
+}
+
 onMounted(() => {
   reduced.value = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  void nextTick(() => {
+    measureTile()
+    snapToCenters()
+  })
+  window.addEventListener('resize', onResize)
   // First auto-spin a few seconds after the page loads.
   scheduleNext(4000)
 })
 
 onUnmounted(() => {
   clearNextTimer()
+  window.clearTimeout(resizeTimer)
+  window.removeEventListener('resize', onResize)
 })
 </script>
 
@@ -137,19 +233,33 @@ onUnmounted(() => {
     <div class="wrap">
       <p class="eyebrow">Integrations</p>
       <h2>Pick any two systems. We&rsquo;ll connect them.</h2>
-      <p class="section-intro">Your business already runs on a dozen different tools. The magic is making them talk to each other &mdash; here are a few of the pairs we wire up every day.</p>
+      <p class="section-intro">Your business already runs on a dozen tools. The trick is making them talk to each other.</p>
 
       <div class="slot-reels" aria-label="Systems we connect">
-        <div class="slot-reel" aria-hidden="true">
-          <div class="slot-row neighbor">{{ leftPrev }}</div>
-          <div class="slot-row current"><span :key="leftName">{{ leftName }}</span></div>
-          <div class="slot-row neighbor">{{ leftNext }}</div>
+        <div ref="leftReelEl" class="slot-reel" :class="{ blur: leftBlur }" aria-hidden="true">
+          <div
+            class="slot-strip"
+            :style="{ transform: `translateY(${leftY}px)`, transitionDuration: `${leftDur}ms` }"
+          >
+            <div v-for="(system, i) in strip" :key="`l-${i}`" class="slot-tile">
+              <img v-if="system.logo" :src="system.logo" :alt="''" class="slot-tile-logo" />
+              <span class="slot-tile-name">{{ system.name }}</span>
+            </div>
+          </div>
+          <div class="slot-payline"></div>
         </div>
         <div class="slot-connector" aria-hidden="true">+</div>
-        <div class="slot-reel" aria-hidden="true">
-          <div class="slot-row neighbor">{{ rightPrev }}</div>
-          <div class="slot-row current"><span :key="rightName">{{ rightName }}</span></div>
-          <div class="slot-row neighbor">{{ rightNext }}</div>
+        <div class="slot-reel" :class="{ blur: rightBlur }" aria-hidden="true">
+          <div
+            class="slot-strip"
+            :style="{ transform: `translateY(${rightY}px)`, transitionDuration: `${rightDur}ms` }"
+          >
+            <div v-for="(system, i) in strip" :key="`r-${i}`" class="slot-tile">
+              <img v-if="system.logo" :src="system.logo" :alt="''" class="slot-tile-logo" />
+              <span class="slot-tile-name">{{ system.name }}</span>
+            </div>
+          </div>
+          <div class="slot-payline"></div>
         </div>
       </div>
       <p class="sr-only" aria-live="polite">
@@ -169,7 +279,6 @@ onUnmounted(() => {
         <button class="btn btn-primary" type="button" :disabled="spinning" @click="spin">
           {{ spinning ? 'Spinning…' : 'Spin the reels' }}
         </button>
-        <span class="slot-count">Combination {{ pairIndex + 1 }} of {{ pairs.length }}</span>
       </div>
 
       <p class="slot-cta">
