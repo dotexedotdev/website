@@ -1,6 +1,7 @@
 /* .EXE — dotexe.dev
    Dark, terminal-inspired. No frameworks, no external assets.
-   Palette: deep indigo night, warm amber accent, teal spark. */
+   Palette: deep indigo night, warm amber accent, teal spark.
+   Ported from the static v1 (index.html/styles.css) — same rules, same look. */
 
 :root {
   --bg: #0b0f1a;
@@ -100,6 +101,7 @@ li::marker { color: var(--amber); }
 .btn:hover { text-decoration: none; }
 .btn-primary { background: var(--amber); color: #14100a; }
 .btn-primary:hover { background: #ffb63d; }
+.btn-primary:disabled { opacity: 0.6; cursor: wait; }
 .btn-ghost {
   background: transparent;
   color: var(--text);
@@ -306,7 +308,7 @@ li::marker { color: var(--amber); }
   font-family: var(--font-mono);
   font-weight: 700;
 }
-.faq-wrap details[open ] summary::after { content: "–"; }
+.faq-wrap details[open] summary::after { content: "–"; }
 .faq-wrap details p { color: var(--muted); padding-bottom: 20px; }
 
 /* Contact */
@@ -353,6 +355,15 @@ li::marker { color: var(--amber); }
 .sent-banner {
   background: var(--amber-soft);
   border: 1px solid rgba(245, 166, 35, 0.35);
+  border-radius: var(--radius);
+  padding: 18px 24px;
+  margin-top: 24px;
+  font-weight: 600;
+}
+/* Vue-port addition: error state for the contact form. */
+.form-error {
+  background: rgba(239, 68, 68, 0.12);
+  border: 1px solid rgba(239, 68, 68, 0.45);
   border-radius: var(--radius);
   padding: 18px 24px;
   margin-top: 24px;

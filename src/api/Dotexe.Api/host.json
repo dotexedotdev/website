@@ -1,0 +1,1 @@
+{"extensions":{"http":{"maxConcurrentRequests":4,"maxOutstandingRequests":16,"routePrefix":"api"}},"functionTimeout":"00:00:40","logging":{"logLevel":{"System.Net.Http.HttpClient":"None","default":"Warning"}},"version":"2.0"}

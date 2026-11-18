@@ -1,0 +1,15 @@
+# Node / Vite
+node_modules/
+src/app/dist/
+src/app/.vite/
+
+# .NET build output
+src/api/**/bin/
+src/api/**/obj/
+artifacts/
+
+# Azure Functions local settings — holds the Airtable token. Never commit.
+local.settings.json
+
+# OS
+.DS_Store

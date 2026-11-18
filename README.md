@@ -1,56 +1,93 @@
-# dotexe.dev — new .EXE website
+# dotexe.dev — .EXE website
 
-Static site for Adam Stirtan's IT consulting business, **.EXE**.
-Built November 17, 2026. Single page, no frameworks, no external assets —
-just `index.html`, `styles.css`, `script.js`.
+The website for Adam Stirtan's IT consulting business, **.EXE** — custom
+software, automation, and integrations for small businesses.
 
-## What's on the site
+Built the same way as the Norgard Restoration app: a Vue frontend with a
+C# Azure Functions API backed by Airtable, hosted on Azure Static Web Apps.
 
-- Problem-first hero (the Reel 1 hook: "You're paying for software that doesn't talk to each other")
-- Services with real depth (Custom Software, Automation, Integrations, Technical Consulting)
-- How it works: free consultation → agree the scope → clear pricing in writing → build included → monthly retainer
-- The "why no build fee" story: with AI, building is the quick part; the value is iterating until it fits
-- Work: Norgard Restoration case study (flagship), ClassZoo, Playday Pups
-- About Adam (15+ years, direct access, Burlington-based) with his quote
-- FAQ (cost, timeline, ownership, existing software, after launch, location)
-- Contact form + phone `(365) 778-1337` + `inbox@dotexe.dev`
+## Stack
 
-## Deliberate decisions (Nov 17, 2026)
+- **Frontend:** Vue 3 + Vite + TypeScript (`src/app/`, pnpm, Node >= 22).
+  Single-page site — no router, no CRM, no auth. The contact form posts to
+  the API below.
+- **API:** C# .NET 10 isolated Azure Functions (`src/api/Dotexe.Api/`).
+  Two routes: `GET /api/health` and `POST /api/leads` (anonymous). A lead
+  submission is validated and written to Airtable.
+- **Data:** Airtable — one table, `Leads`, in the .EXE base (see below).
+- **Hosting:** Azure Static Web Apps. Deploy runs from
+  `.github/workflows/cicd.yml` (build job, then deploy on push to `main`).
 
-- **No dollar figures anywhere on the site.** Norgard's retainer numbers are
-  client-specific and must NOT be published anywhere public — including this
-  README. Pricing is shown in the proposal after scope is agreed.
-- **Free consultation is front and centre** — call or video call, no paid assessments.
-- **Norgard case study needs Jon's OK before the site goes live.** It tells his
-  story (paper docket, desktop folders, "messy and not efficient") from the App
-  brief he and his wife wrote. Ask him at the Nov 18 demo. The case study is
-  honest about scope: QuickBooks and Xactimate integrations are on the roadmap,
-  not shipped.
+## Run it locally
 
-## Contact form — one-time activation
+Prerequisites: Node.js >= 22, pnpm 10, .NET 10 SDK.
 
-The form posts to **FormSubmit** (`https://formsubmit.co/inbox@dotexe.dev`) — a
-free form endpoint, no account needed. The first time someone submits, FormSubmit
-emails `inbox@dotexe.dev` an activation link. Adam must click it once; after
-that, submissions arrive as emails. If the form is ever swapped for another
-endpoint, update the `action` in `index.html` and the `_next` URL.
+```sh
+git clone git@github.com:adamstirtan/dotexe-dev.git
+cd dotexe-dev
 
-## Deploying
+# Frontend — serves on http://127.0.0.1:5173, proxies /api to the Functions host
+pnpm --dir src/app install
+pnpm --dir src/app dev
 
-1. Create the public GitHub repo `adamstirtan/dotexe-dev`
-   (GitHub App cannot create repos — create via the browser, Adam completes 2FA).
-2. Push this directory to `main`.
-3. Repo Settings → Pages → Source: Deploy from a branch, `main` / `/ (root)`.
-4. Add the custom domain `www.dotexe.dev` (the `CNAME` file is already in the repo).
-5. At the domain registrar, point `www.dotexe.dev` at GitHub Pages
-   (CNAME to `adamstirtan.github.io`), and add the apex A records GitHub shows
-   if the bare domain should redirect too. Enforce HTTPS once the certificate issues.
-6. The old Google Site stays live until DNS is switched — cut over only after the
-   Pages site is verified at `adamstirtan.github.io/dotexe-dev/`.
+# API — from a second terminal, with Azure Functions Core Tools installed
+cp src/api/Dotexe.Api/local.settings.example.json src/api/Dotexe.Api/local.settings.json
+# fill in AIRTABLE_API_KEY in local.settings.json (see Airtable below)
+cd src/api/Dotexe.Api && func start
+```
 
-## Still to do
+Without the API running, the site still renders — only the contact form
+fails (it shows an error state and the phone/email fallback).
 
-- Adam headshot for the About section (the only local photo on file is 150×150 —
-  too small). Send a bigger one and add it as `adam.jpg`.
-- Jon's approval for the Norgard case study (see above).
-- FormSubmit activation click after the first real submission.
+## Airtable — what the API needs
+
+Adam created the base for .EXE leads:
+
+- **Base ID:** `appE2GISppe10HTic`
+- **Table:** `Leads`
+
+Expected `Leads` table schema (the table is built separately):
+
+| Field | Type | Notes |
+|---|---|---|
+| Name | Single line text | required |
+| Business | Single line text | optional |
+| Email | Email | required |
+| Phone | Phone number | optional |
+| Message | Long text | required |
+| Status | Single select: New / Contacted / Won / Lost | default New — set in Airtable, the API does not send it |
+| Created | Created time | filled by Airtable, the API does not send it |
+
+The API also needs a **Personal Access Token** with `data.records:write`
+scope on this base. Create it in Airtable (account → Developer hub →
+Personal access tokens), scoped to base `appE2GISppe10HTic`.
+
+Where the values go — never in the repo:
+
+- **Locally:** `src/api/Dotexe.Api/local.settings.json` (copy the
+  `.example.json` file). `local.settings.json` is gitignored.
+  - `AIRTABLE_API_KEY` — the token (fill in)
+  - `AIRTABLE_BASE_ID` — `appE2GISppe10HTic` (already in the example file)
+  - `AIRTABLE_LEADS_TABLE` — `Leads`
+- **In Azure:** the Static Web App's Application Settings, same three names.
+
+## Deploy
+
+1. Create the Static Web App (Free tier) in Azure and add its deployment
+   token as the GitHub secret `AZURE_STATIC_WEB_APPS_API_TOKEN`.
+2. Add the three `AIRTABLE_*` settings above to the SWA's Application
+   Settings.
+3. Push to `main` — the workflow builds the frontend and API and deploys.
+4. Custom domain: point `www.dotexe.dev` at the SWA hostname with a CNAME
+   at Porkbun (the domain registrar), then enforce HTTPS in the SWA once
+   the certificate provisions.
+
+## Notes
+
+- No dollar figures anywhere on the site. Pricing is shown in the proposal
+  after scope is agreed — never published.
+- The Norgard Restoration case study on the site needs Jon's OK before the
+  site goes live.
+- The earlier static single-page version of the site lives on `main`
+  (commit `93bbf8f`); this branch (`vue-rebuild`) replaces it with the Vue
+  app. The static files were the design and copy reference for the port.
