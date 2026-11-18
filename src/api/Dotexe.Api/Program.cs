@@ -10,7 +10,6 @@ builder.Services.AddHttpClient("airtable", client => client.Timeout = TimeSpan.F
     .ConfigurePrimaryHttpMessageHandler(SafeHandler);
 builder.Services.AddSingleton<AirtableClient>();
 builder.Services.AddSingleton<LeadService>();
-builder.Services.AddSingleton<BlogService>();
 await builder.Build().RunAsync();
 
 static HttpMessageHandler SafeHandler() => new HttpClientHandler { AllowAutoRedirect = false, UseCookies = false, UseDefaultCredentials = false };
