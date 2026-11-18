@@ -31,6 +31,51 @@ export interface BlogPost {
 
 export const posts: BlogPost[] = [
   {
+    slug: 'oakville-data-centre-pause-buzz-ai-campus',
+    title: 'Oakville’s data-centre pause is now appeal-proof — while a 320 MW AI campus waits in the wings',
+    date: '2026-11-18',
+    excerpt:
+      'Oakville’s one-year freeze on data centres survived its appeal period untouched, and the town’s planning review is now underway — even as BUZZ HPC advances plans for a 320-megawatt AI campus in north Oakville.',
+    body: [
+      'Oakville’s one-year pause on data centres is now on firm legal footing. The Town announced in early November that the appeal period for Interim Control By-law 2026-129 closed with no appeals received, and its review of planning rules for data centres and similar facilities is moving into its next phase. The by-law, passed on August 11, 2026, temporarily restricts new data centres, enterprise computing facilities and similar high-intensity digital processing facilities on employment lands while staff study them.',
+      'What makes Oakville’s approach different from its neighbour’s is timing. Burlington’s data centre proposal at 3110 South Service Road arrived first and is a permitted use, so it went through a technical site plan review with no public meeting — and Burlington council voted down a moratorium in July. Oakville acted before any application existed: the Town says it still hasn’t received a formal data centre application, only preliminary industry discussions. Mayor Rob Burton put it this way: “The decision to act first means the appeal period is behind us, the by-law is secure, and the review now moves into its next phase.”',
+      'The review will look at land use compatibility, infrastructure capacity, electricity and water demands, noise and environmental impacts, and who — the town, the province, or another agency — is responsible for what. Under Ontario’s Planning Act, the pause can run for up to one year, with the option to extend it to two, while the study is completed. It is not a permanent ban: the Town has said so repeatedly.',
+      'Meanwhile, the proposal everyone is watching got more detailed last week. BUZZ High Performance Computing, a subsidiary of HIVE Digital Technologies, outlined its power and cooling plans for a proposed 320-megawatt AI campus in Oakville, according to Structure Research on November 13. The project, announced in May, would be one of Canada’s largest AI facilities: about 320 MW of utility capacity, more than 100,000 graphics processors at full build-out, roughly $3.5 billion of investment, and a target of coming online in the second half of 2027. Industry reporting places the site at 3480 Ninth Line in north Oakville, on about 25 acres BUZZ bought for a combined $58 million.',
+      'BUZZ has been answering the obvious questions in advance. In an interview published in October, BUZZ president and COO Craig Tavares said the company would privately fund the electrical connection, transformer infrastructure, required grid expansions and a new fibre-optic backbone — and that none of those costs would fall on municipal taxpayers or be recovered through a project-specific increase to residential electricity rates. The campus would connect to the provincial transmission grid rather than Oakville’s local distribution system, with the transformer station on BUZZ’s own property. The company also says it will use closed-loop cooling with no continuous municipal water use for cooling.',
+      'But none of this is approved yet, and the timing is the open question. No formal application has been filed, the Town’s freeze runs to August 11, 2027, and the province’s draft Data Centre Playbook — the framework meant to coordinate all of this — is still a draft, with comments having closed in September and no decision posted. For small businesses in Halton, the practical takeaway is simple: the rules for the biggest infrastructure projects in the region are still being written, in Oakville and at Queen’s Park alike, and the next year is when they get decided. If your business touches AI infrastructure, power, or data-heavy work, that’s a process worth watching.',
+    ],
+    sources: [
+      {
+        label: 'Town of Oakville — “Oakville moves forward with data centre planning review”',
+        url: 'https://www.oakville.ca/town-hall/news-notices/2026-news-releases-archive/oakville-moves-forward-with-data-centre-planning-review/',
+      },
+      {
+        label: 'Town of Oakville — “Oakville Council approves Interim Control By-law to support further study related to data centres”',
+        url: 'https://www.oakville.ca/town-hall/news-notices/2026-news-releases-archive/oakville-council-approves-interim-control-by-law-to-support-further-study-related-to-data-centres/',
+      },
+      {
+        label: 'GTA Construction Report — “Oakville continues data centre planning review”, November 2, 2026',
+        url: 'https://www.gtaconstructionreport.com/oakville-continues-data-centre-planning-review/',
+      },
+      {
+        label: 'Structure Research — “BUZZ HPC outlines power and cooling plans for proposed Oakville AI campus”, November 13, 2026',
+        url: 'https://www.structureresearch.net/2026/11/13/buzz-hpc-outlines-power-and-cooling-plans-for-proposed-oakville-ai-campus/',
+      },
+      {
+        label: 'HIVE Digital Technologies / BUZZ HPC — company announcement, May 18, 2026',
+        url: 'https://www.buzzhpc.ai/company/news/hives-buzz-hpc-announces-320-mw-sovereign-ai-infrastructure-in-greater-toronto-area/',
+      },
+      {
+        label: 'FourWeekMBA — “BUZZ HPC Says It Will Pay Grid Costs for 320MW Oakville Site” (Capacity interview, October 2026)',
+        url: 'https://fourweekmba.com/ai-buzz-hpc-says-it-will-pay-grid-costs-for-320mw-oakville-site/',
+      },
+      {
+        label: 'OakvilleIQ — “A 320 MW data centre meets Oakville’s Toronto-fed grid”',
+        url: 'https://oakvilleiq.ca/news/oakville-data-centre-320-mw-grid/',
+      },
+    ],
+  },
+  {
     slug: 'burlington-data-centre-proposal',
     title: 'A data centre is proposed for Burlington’s South Service Road. Here’s what’s actually happening',
     date: '2026-11-17',
