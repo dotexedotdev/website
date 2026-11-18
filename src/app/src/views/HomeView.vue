@@ -5,6 +5,7 @@ import ServicesSection from '../components/ServicesSection.vue'
 import SlotMachine from '../components/SlotMachine.vue'
 import HowItWorksSection from '../components/HowItWorksSection.vue'
 import WorkSection from '../components/WorkSection.vue'
+import ReviewsSection from '../components/ReviewsSection.vue'
 import AboutSection from '../components/AboutSection.vue'
 import FaqSection from '../components/FaqSection.vue'
 import ContactSection from '../components/ContactSection.vue'
@@ -17,6 +18,7 @@ import ContactSection from '../components/ContactSection.vue'
   <SlotMachine />
   <HowItWorksSection />
   <WorkSection />
+  <ReviewsSection />
   <AboutSection />
   <FaqSection />
   <ContactSection />

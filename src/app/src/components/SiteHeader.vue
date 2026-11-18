@@ -16,11 +16,10 @@ function closeNav(): void {
         ><img src="/logo-icon.png" alt="" width="40" height="40" /><span class="logo-mark">.exe</span></RouterLink
       >
       <nav class="site-nav" :class="{ open: navOpen }" aria-label="Main navigation">
-        <RouterLink :to="{ path: '/', hash: '#services' }" @click="closeNav">Services</RouterLink>
-        <RouterLink :to="{ path: '/', hash: '#how' }" @click="closeNav">How it works</RouterLink>
-        <RouterLink :to="{ path: '/', hash: '#work' }" @click="closeNav">Our work</RouterLink>
-        <RouterLink :to="{ path: '/', hash: '#about' }" @click="closeNav">About</RouterLink>
-        <RouterLink :to="{ path: '/', hash: '#faq' }" @click="closeNav">FAQ</RouterLink>
+        <RouterLink to="/" @click="closeNav">Home</RouterLink>
+        <RouterLink to="/about" @click="closeNav">About</RouterLink>
+        <RouterLink to="/services" @click="closeNav">Services</RouterLink>
+        <RouterLink to="/support" @click="closeNav">Support</RouterLink>
         <RouterLink to="/blog" @click="closeNav">Blog</RouterLink>
         <RouterLink to="/contact" @click="closeNav">Contact</RouterLink>
       </nav>

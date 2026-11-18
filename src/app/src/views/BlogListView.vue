@@ -12,6 +12,12 @@ import { formatDate, posts } from '../blog/posts'
 
       <div class="blog-cards">
         <article v-for="post in posts" :key="post.slug" class="card blog-card">
+          <img
+            v-if="post.image"
+            :src="post.image"
+            :alt="`Illustrative image for: ${post.title}`"
+            class="blog-card-image"
+          />
           <p class="blog-date">{{ formatDate(post.date) }}</p>
           <h2>
             <RouterLink :to="`/blog/${post.slug}`">{{ post.title }}</RouterLink>

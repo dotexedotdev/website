@@ -1,5 +1,5 @@
 <template>
-  <section class="section about" id="about">
+  <section class="section about section-tint" id="about">
     <div class="wrap">
       <p class="eyebrow">Part of your team</p>
       <h2>You work directly with the engineer solving the problem.</h2>

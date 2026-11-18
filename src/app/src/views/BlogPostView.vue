@@ -12,6 +12,10 @@ const post = computed(() => getPost(props.slug))
     <div class="wrap blog-wrap">
       <template v-if="post">
         <p><RouterLink to="/blog" class="blog-back">&larr; All articles</RouterLink></p>
+        <figure v-if="post.image" class="blog-hero">
+          <img :src="post.image" :alt="`Illustrative image for: ${post.title}`" class="blog-hero-image" />
+          <figcaption class="blog-hero-caption">Illustrative image</figcaption>
+        </figure>
         <p class="eyebrow">{{ formatDate(post.date) }}</p>
         <h1>{{ post.title }}</h1>
         <p class="lede">{{ post.excerpt }}</p>

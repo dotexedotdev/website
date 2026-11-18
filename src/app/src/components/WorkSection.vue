@@ -1,5 +1,5 @@
 <template>
-  <section class="section" id="work">
+  <section class="section section-tint" id="work">
     <div class="wrap">
       <p class="eyebrow">Our work</p>
       <h2>Real businesses. Real problems.</h2>

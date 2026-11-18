@@ -1,5 +1,5 @@
 <template>
-  <section class="section problem">
+  <section class="section problem section-tint">
     <div class="wrap">
       <h2>Sound familiar?</h2>
       <div class="grid-3">

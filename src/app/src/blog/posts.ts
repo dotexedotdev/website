@@ -8,7 +8,25 @@
 //   date    — ISO date, e.g. '2026-11-18'
 //   excerpt — one or two sentences, shown on the list page and under the title
 //   body    — paragraphs as HTML strings (links allowed); keep paragraphs short
+//   image   — header image path, e.g. '/blog/my-article.jpg' (see below)
 //   sources — optional list of { label, url } shown at the end of the article
+//
+// ARTICLE IMAGES: every article gets a header image, shown at the top of
+// the article page and as the thumbnail on the /blog list. Images live in
+// `public/blog/` and are referenced by path, e.g. '/blog/my-article.jpg'.
+//   - Size: wide landscape, 2736×912 (3:1) works well; the views crop with
+//     object-fit: cover, so anything roughly 3:1 or 16:9 is fine.
+//   - Style: a generic illustration for the topic — never present a
+//     generated image as a photograph of a specific real place, building,
+//     or facility. The article page labels it "Illustrative image".
+//   - FOR THE MON/WED/FRI 7AM BLOG CRON: generate one image per article
+//     with the media tools (prompt: wide landscape banner illustration of
+//     the topic, flat illustration style, muted indigo palette, no text),
+//     save it as `public/blog/<slug>.jpg`, set the `image` field to
+//     `/blog/<slug>.jpg`, and check the image visually before committing.
+//     If image generation is unavailable in a run, leave `image` unset —
+//     the views render the article without one — and say so in the report
+//     rather than shipping a mismatched or placeholder image.
 //
 // Every article must be grounded in real, verifiable sources. No invented
 // facts, dates, or quotes — if a detail can't be sourced, leave it out.
@@ -26,6 +44,7 @@ export interface BlogPost {
   date: string
   excerpt: string
   body: string[]
+  image?: string
   sources?: BlogSource[]
 }
 
@@ -36,6 +55,7 @@ export const posts: BlogPost[] = [
     date: '2026-11-18',
     excerpt:
       'Oakville’s one-year freeze on data centres survived its appeal period untouched, and the town’s planning review is now underway — even as BUZZ HPC advances plans for a 320-megawatt AI campus in north Oakville.',
+    image: '/blog/oakville-data-centre.jpg',
     body: [
       'Oakville’s one-year pause on data centres is now on firm legal footing. The Town announced in early November that the appeal period for Interim Control By-law 2026-129 closed with no appeals received, and its review of planning rules for data centres and similar facilities is moving into its next phase. The by-law, passed on August 11, 2026, temporarily restricts new data centres, enterprise computing facilities and similar high-intensity digital processing facilities on employment lands while staff study them.',
       'What makes Oakville’s approach different from its neighbour’s is timing. Burlington’s data centre proposal at 3110 South Service Road arrived first and is a permitted use, so it went through a technical site plan review with no public meeting — and Burlington council voted down a moratorium in July. Oakville acted before any application existed: the Town says it still hasn’t received a formal data centre application, only preliminary industry discussions. Mayor Rob Burton put it this way: “The decision to act first means the appeal period is behind us, the by-law is secure, and the review now moves into its next phase.”',
@@ -81,6 +101,7 @@ export const posts: BlogPost[] = [
     date: '2026-11-17',
     excerpt:
       'A two-storey, 20-megawatt data centre is proposed for the former Tucker’s Marketplace site — and the debate around it says a lot about how Ontario cities handle new infrastructure.',
+    image: '/blog/burlington-data-centre.jpg',
     body: [
       'A data centre is proposed for 3110 South Service Road, on the former Mother Tucker’s / Tucker’s Marketplace site. The application is for a two-storey building of about 5,163 square metres (roughly 55,000 square feet), needing around 20 megawatts of electricity — 17 MW for the facility itself, plus 3 MW for general use — and cooled by air, not water. The facility would provide colocation, cloud computing, data storage, and data processing for commercial and institutional users. The City of Burlington notes it is not an AI or hyperscale facility.',
       'Where it stands: the application was deemed complete by the City on July 6, 2026, and the City’s project page now says it has received site plan approval, subject to conditions.',
@@ -118,6 +139,7 @@ export const posts: BlogPost[] = [
     date: '2026-11-17',
     excerpt:
       'The Centre for Integrated Transportation and Mobility was renewed as an Ontario Vehicle Innovation Network site — with fresh funding for the region’s small tech firms.',
+    image: '/blog/hamilton-halton-mobility.jpg',
     body: [
       'On May 15, 2026, the Centre for Integrated Transportation and Mobility (CITM) — an initiative of Innovation Factory — was renewed as one of nine Regional Technology Development Sites in the Ontario Vehicle Innovation Network (OVIN). The Hamilton region site receives $4.5 million: $2 million through OVIN, matched by over $330,000 from other public sector sources and $2.2 million in private sector contributions.',
       'It’s part of a bigger provincial bet: over $69.6 million into Ontario’s automotive and mobility ecosystem, made up of $17.5 million from the Government of Ontario, $32.8 million in matching industry investment, and $19.3 million from the broader public sector.',
@@ -137,6 +159,7 @@ export const posts: BlogPost[] = [
     date: '2026-11-17',
     excerpt:
       'Targeted impersonation emails cost Canadians $67.9 million in 2025 — and the first half of 2026 was already worse. Here’s how the scam works, and what stops it.',
+    image: '/blog/spear-phishing.jpg',
     body: [
       'The numbers are stark. Canadians reported more than $704 million in fraud losses in 2025, the highest year on record, according to the Canadian Anti-Fraud Centre’s annual statistics, released in March 2026. Spear phishing — targeted impersonation, including business email compromise — accounted for $67.9 million of that, across 813 reports, making it the second-largest fraud category by dollar loss. And 2026 started worse: about $57.7 million in spear phishing losses in the first six months alone. The Anti-Fraud Centre estimates only 5 to 10 percent of fraud is ever reported, so the real totals are several times higher.',
       'Here’s how it usually plays out for a small business. A criminal impersonates someone trusted — a boss, a supplier, a lawyer, an employee — and convinces someone to send money or change banking details. The classic version is invoice fraud: a “supplier” emails new payment instructions, the invoice is real, and the bank account isn’t. Construction, contracting, and real estate are frequent targets. In May 2026, the Anti-Fraud Centre said it helped recover about $3.5 million for a Quebec business that had wired money on fraudulent instructions — and that the fast report was what made recovery possible.',
