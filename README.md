@@ -24,7 +24,7 @@ Prerequisites: Node.js >= 22, pnpm 10, .NET 10 SDK.
 
 ```sh
 git clone git@github.com:dotexedotdev/website.git
-cd dotexe-dev
+cd website
 
 # Frontend — serves on http://127.0.0.1:5173, proxies /api to the Functions host
 pnpm --dir src/app install
