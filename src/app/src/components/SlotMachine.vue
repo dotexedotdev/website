@@ -12,14 +12,29 @@ interface Pair {
   explainer: string
 }
 
-// Real logo files that exist in public/assets — only these two of the
-// systems below have one in the repo. Every other system renders a clean
-// text tile; logos are never invented or drawn.
+// Real logo files in public/assets — every system below now has one.
+// Sources: Wikimedia Commons (official logo files) for Shopify, QuickBooks,
+// Stripe, HubSpot, Airtable, Slack, Square, Mailchimp, WooCommerce, Notion;
+// the companies' own favicons for ShipStation (shipstation.com), Calendly
+// (calendly.com) and Xero (xero.com). No logo is invented or drawn.
 const LOGOS: Record<string, string> = {
   Gmail: '/assets/logo-gmail.png',
   // The Google "G" brand mark, used for the Google product in this pair;
   // the tile still carries the "Google Calendar" caption so it's unambiguous.
   'Google Calendar': '/assets/logo-google.png',
+  Shopify: '/assets/logo-shopify.png',
+  QuickBooks: '/assets/logo-quickbooks.svg',
+  Stripe: '/assets/logo-stripe.svg',
+  HubSpot: '/assets/logo-hubspot.svg',
+  ShipStation: '/assets/logo-shipstation.svg',
+  Calendly: '/assets/logo-calendly.png',
+  Airtable: '/assets/logo-airtable.svg',
+  Slack: '/assets/logo-slack.png',
+  Square: '/assets/logo-square.svg',
+  Xero: '/assets/logo-xero.png',
+  Mailchimp: '/assets/logo-mailchimp.svg',
+  WooCommerce: '/assets/logo-woocommerce.svg',
+  Notion: '/assets/logo-notion.svg',
 }
 
 const pairs: Pair[] = [
