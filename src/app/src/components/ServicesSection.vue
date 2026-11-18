@@ -6,7 +6,7 @@
       <p class="section-intro">We build custom business software, automate workflows, and connect the systems your team relies on.</p>
       <div class="grid-2">
         <article class="card service">
-          <div class="service-art"><img src="/assets/service-code.png" alt="Illustration of a code editor" /></div>
+          <div class="service-art"><img src="/assets/service-dashboard.png" alt="Illustration of a software dashboard" /></div>
           <h3>Custom Software</h3>
           <p>Business applications designed around your actual workflows &mdash; internal tools, dashboards, customer portals, and job management.</p>
           <p>When spreadsheets and off-the-shelf software aren&rsquo;t quite right, we build something around the way your business actually works.</p>
@@ -23,13 +23,13 @@
           </ul>
         </article>
         <article class="card service">
-          <div class="service-art"><img src="/assets/service-puzzle.png" alt="Illustration of puzzle pieces fitting together" /></div>
+          <div class="service-art"><img src="/assets/service-integrations.png" alt="Illustration of people and systems connected together" /></div>
           <h3>Integrations</h3>
           <p>Make your CRM, documents, payments, communications, and other systems work together.</p>
           <p>No more re-typing between apps, no more wondering which copy is current. Your systems share the same information, automatically.</p>
         </article>
         <article class="card service">
-          <div class="service-art"><img src="/assets/service-consulting.png" alt="Illustration of people and systems connected together" /></div>
+          <div class="service-art"><img src="/assets/service-videocall.png" alt="Illustration of two people in a video call" /></div>
           <h3>Technical Consulting</h3>
           <p>Help making better technology decisions when the path forward is unclear.</p>
           <p>That includes the bill itself: many businesses are stuck in never-ending monthly subscriptions. We help you move to cost-effective apps &mdash; and make them work for you.</p>

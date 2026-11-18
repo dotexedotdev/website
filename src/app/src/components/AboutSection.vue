@@ -18,9 +18,12 @@
           <p>Based in Burlington, Ontario, working with businesses across the GTA and beyond &mdash; on site when it helps, remote when it doesn&rsquo;t.</p>
         </article>
       </div>
-      <blockquote>
-        <p>&ldquo;I&rsquo;ve spent my career turning complicated technology problems into software that people can actually use. I&rsquo;ve worked with startups, growing businesses, and large technology companies, building systems across software development, cloud infrastructure, automation, and AI.&rdquo;</p>
-        <cite>&mdash; Adam Stirtan, founder of .EXE</cite>
+      <blockquote class="about-quote">
+        <img class="about-photo" src="/adam-photo.png" alt="Adam Stirtan" width="132" height="235" />
+        <div>
+          <p>&ldquo;I&rsquo;ve spent my career turning complicated technology problems into software that people can actually use. I&rsquo;ve worked with startups, growing businesses, and large technology companies, building systems across software development, cloud infrastructure, automation, and AI.&rdquo;</p>
+          <cite>&mdash; Adam Stirtan, founder of .EXE</cite>
+        </div>
       </blockquote>
     </div>
   </section>
