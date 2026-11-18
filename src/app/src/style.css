@@ -427,11 +427,11 @@ li::marker { color: var(--lavender); }
 /* Footer */
 .site-footer { border-top: 1px solid var(--line); padding: 48px 0; }
 .footer-logo img {
-  width: 132px;
+  width: 64px;
   height: auto;
   display: block;
-  margin-bottom: 12px;
 }
+.footer-logo .logo-mark { font-size: 2rem; }
 .footer-inner {
   display: flex;
   justify-content: space-between;

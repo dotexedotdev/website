@@ -2,7 +2,7 @@
   <footer class="site-footer">
     <div class="wrap footer-inner">
       <div class="footer-brand">
-        <a class="logo footer-logo" href="#top" aria-label=".EXE home"><img src="/logo-lockup.png" alt=".EXE logo" width="132" height="132" /></a>
+        <a class="logo footer-logo" href="#top" aria-label=".EXE home"><img src="/logo-icon.png" alt="" width="64" height="64" /><span class="logo-mark">.exe</span></a>
         <p class="muted">Software that works for your business.</p>
       </div>
       <nav aria-label="Footer navigation">
