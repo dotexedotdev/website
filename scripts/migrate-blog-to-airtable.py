@@ -36,7 +36,7 @@ DATA_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "airtable-p
 FIELDS = [
     {"name": "Title", "type": "singleLineText"},
     {"name": "Slug", "type": "singleLineText"},
-    {"name": "Date", "type": "date", "options": {"dateFormat": {"name": "ISO"}}},
+    {"name": "Date", "type": "date", "options": {"dateFormat": {"name": "iso", "format": "YYYY-MM-DD"}}},
     {"name": "Excerpt", "type": "multilineText"},
     {"name": "Body", "type": "multilineText"},
     {"name": "Image", "type": "singleLineText"},
