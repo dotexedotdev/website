@@ -74,12 +74,12 @@ report rather than shipping a mismatched or placeholder image.
   bundled fallback, used only when the API fails. Keep it in sync when
   publishing (append newest first). It is not the source of truth.
 
-## First-time setup (one-off — NOT done yet)
+## First-time setup (done — 2026-11-18)
 
-The code above is ready, but the **Posts table does not exist yet** and
-the four launch articles have not been imported, because the Airtable API
-key is not stored anywhere this workspace can read — it lives only in the
-live site's app settings. To finish the move:
+The Posts table was created in the ".EXE" base (`appE2GISppe10HTic`,
+table `tblcU4cE1tw7PFVGg`), the four launch articles were imported as
+Published, and the Airtable-backed blog is live and verified. The steps
+below are kept for reference only — do not re-run them.
 
 1. Create the **Posts** table in the ".EXE" base (`appE2GISppe10HTic`)
    with the fields listed at the top of this doc (Title, Slug, Date,
