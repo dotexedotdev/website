@@ -11,7 +11,7 @@ function closeNav(): void {
 <template>
   <header class="site-header">
     <div class="wrap header-inner">
-      <a class="logo" href="#top" aria-label=".EXE home"><span class="logo-mark">.exe</span></a>
+      <a class="logo" href="#top" aria-label=".EXE home"><img src="/logo-icon.png" alt="" width="40" height="40" /><span class="logo-mark">.exe</span></a>
       <nav class="site-nav" :class="{ open: navOpen }" aria-label="Main navigation">
         <a href="#services" @click="closeNav">Services</a>
         <a href="#how" @click="closeNav">How it works</a>

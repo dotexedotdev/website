@@ -1,8 +1,8 @@
 <template>
   <footer class="site-footer">
     <div class="wrap footer-inner">
-      <div>
-        <a class="logo" href="#top"><span class="logo-mark">.exe</span></a>
+      <div class="footer-brand">
+        <a class="logo footer-logo" href="#top" aria-label=".EXE home"><img src="/logo-lockup.png" alt=".EXE logo" width="132" height="132" /></a>
         <p class="muted">Software that works for your business.</p>
       </div>
       <nav aria-label="Footer navigation">
