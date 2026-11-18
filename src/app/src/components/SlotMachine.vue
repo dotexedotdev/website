@@ -195,9 +195,10 @@ async function spin(): Promise<void> {
   const nextPair = pairs[nextIndex] as Pair
 
   // Both reels spin together — same start, same duration — and land together.
+  // Every spin lasts ~2s so it reads as a real spin, never a quick jump.
   await Promise.all([
-    scrollReel('left', nextPair.left, 0, 1500),
-    scrollReel('right', nextPair.right, 0, 1500),
+    scrollReel('left', nextPair.left, 0, 2000),
+    scrollReel('right', nextPair.right, 0, 2000),
   ])
 
   currentPair.value = nextPair
