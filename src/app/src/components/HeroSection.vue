@@ -8,7 +8,7 @@ import TerminalWindow from './TerminalWindow.vue'
       <div>
         <p class="eyebrow">Burlington, Ontario &middot; Serving the GTA and beyond</p>
         <h1>Technical assistance your small business can trust.</h1>
-        <p class="lede">One engineer, directly on your side &mdash; custom software, automation, and integrations built around your business, so the tools you already use finally work together and the repetitive work disappears.</p>
+        <p class="lede">Custom software, automation, and integrations &mdash; built around your business.</p>
         <div class="hero-actions">
           <a class="btn btn-primary" href="#contact">Book a free consultation</a>
           <a class="btn btn-ghost" href="#how">See how it works</a>

@@ -1,11 +1,9 @@
 <script setup lang="ts">
 import HeroSection from '../components/HeroSection.vue'
-import ProblemSection from '../components/ProblemSection.vue'
 import ServicesSection from '../components/ServicesSection.vue'
 import SlotMachine from '../components/SlotMachine.vue'
 import HowItWorksSection from '../components/HowItWorksSection.vue'
-import WorkSection from '../components/WorkSection.vue'
-import ReviewsSection from '../components/ReviewsSection.vue'
+import SuccessCarousel from '../components/SuccessCarousel.vue'
 import AboutSection from '../components/AboutSection.vue'
 import FaqSection from '../components/FaqSection.vue'
 import ContactSection from '../components/ContactSection.vue'
@@ -13,12 +11,10 @@ import ContactSection from '../components/ContactSection.vue'
 
 <template>
   <HeroSection />
-  <ProblemSection />
   <ServicesSection />
   <SlotMachine />
   <HowItWorksSection />
-  <WorkSection />
-  <ReviewsSection />
+  <SuccessCarousel />
   <AboutSection />
   <FaqSection />
   <ContactSection />
