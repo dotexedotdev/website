@@ -56,6 +56,43 @@ export interface BlogPost {
 
 export const posts: BlogPost[] = [
   {
+    slug: 'steeltech-rhysida-ransomware-lesson',
+    title: 'A Canadian manufacturer was listed by a ransomware gang this week. Here’s the lesson for Halton small businesses',
+    date: '2026-11-20',
+    excerpt:
+      'Rhysida listed a Manitoba manufacturer on its leak site on November 18, claiming 1.5 TB of stolen data. The attack pattern is the same one aimed at businesses of every size — and the defences are mostly unglamorous.',
+    image: '/blog/steeltech-rhysida-ransomware-lesson.jpg',
+    body: [
+      'On November 18, the ransomware group Rhysida published SteelTech Inc. — a Manitoba manufacturer of outdoor wood furnaces, trading as HeatMaster SS — on its leak site, claiming to have taken about 1.5 terabytes of data, including accounting records, mail archives and employee information. The company has not confirmed the claims, and the details so far come from the group itself, so treat them as claims rather than established fact. What is not in doubt is the pattern: this is the same group, using the same playbook, that has listed hundreds of victims since it emerged in May 2023.',
+      'That playbook is called double extortion. The attackers steal a copy of your data before they encrypt it, then demand payment twice over: once to unlock your systems, and again to keep the stolen data from being published. It matters because it changes what a backup can do for you. A good backup gets your systems back — but it does nothing about the data the attackers already hold. Prevention is the only defence against the second demand.',
+      'Small businesses are squarely in scope. CIRA’s 2025 Cybersecurity Survey found that 24 percent of Canadian organizations had been hit by ransomware in the preceding twelve months, and 74 percent of victims paid the ransom. The Canadian Centre for Cyber Security calls ransomware the top cybercrime threat facing Canada’s critical infrastructure, and notes that the ransomware-as-a-service model has lowered the technical barrier so far that any organization is a viable target. Most victims are not chosen for who they are — they are chosen because a door was open.',
+      'The doors, in Rhysida’s case, are well documented. A joint advisory from CISA, the FBI and the Multi-State Information Sharing and Analysis Center (AA23-319A) lists three ways in: valid accounts on external-facing remote services such as VPNs, where multi-factor authentication was not enabled; the Zerologon vulnerability in older domain controllers; and phishing. None of those requires a sophisticated target — just an unpatched system, a reused password, or one convincing email.',
+      'What actually stops it is the unglamorous list the Cyber Centre recommends. Back up your data on the 3-2-1 rule — three copies, on two kinds of media, with one copy off site — and keep one copy offline, where ransomware cannot reach it. Test your restores: a backup that has never been restored is a hope, not a plan. Turn on multi-factor authentication for email, VPN and cloud admin accounts, and patch promptly. And write down an incident response plan before you need one: who is in charge, who you call — your IT provider, your insurer, the Canadian Centre for Cyber Security at 1-833-CYBER-88 — and what you do first.',
+      'If it does happen, speed is everything: call your bank immediately if money has moved, then report it to your local police and to the Canadian Anti-Fraud Centre at 1-888-495-8501. And remember the timing. The week to check your backups is the week before you need them — not the week a ransomware gang publishes your name.',
+    ],
+    sources: [
+      {
+        label: 'Cyber Threat Intelligence — “SteelTech Inc. Ransomware Attack by Rhysida (2026)”',
+        url: 'https://cyberthreatintelligence.net/ransomware-victim/steeltech-inc-rhysida-2026',
+      },
+      {
+        label: 'Alberta Radio — “Canada War & Cyber: Java Alert, Breach Claims”, November 18, 2026 (notes the claims are unverified)',
+        url: 'https://www.albertaradio.ca/post/canada-war-cyber-briefing-breach-claims-global-flashpoints-november-18-2026',
+      },
+      {
+        label: 'CISA, FBI and MS-ISAC — “#StopRansomware: Rhysida Ransomware” (AA23-319A)',
+      },
+      {
+        label: 'Cybersecurity Canada — “Ransomware: What Canadian Businesses Need to Know Before, During, and After an Attack”',
+        url: 'https://cybersecuritycanada.ca/news/posts/ransomware-what-canadian-businesses-need-to-know-before-during-and-after-an-attack/',
+      },
+      {
+        label: 'Cloudforces — “Ransomware Hit 24% of Canadian Organizations in 2025” (citing CIRA’s 2025 Cybersecurity Survey)',
+        url: 'https://www.cloudforces.ca/blog/ransomware-preparedness-playbook-canadian-smbs-2026',
+      },
+    ],
+  },
+  {
     slug: 'oakville-data-centre-pause-buzz-ai-campus',
     title: 'Oakville’s data-centre pause is now appeal-proof — while a 320 MW AI campus waits in the wings',
     date: '2026-11-18',
