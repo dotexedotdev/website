@@ -56,6 +56,31 @@ export interface BlogPost {
 
 export const posts: BlogPost[] = [
   {
+    slug: 'ai-vulnerability-window-days-not-weeks',
+    title: 'AI finds website flaws in days now. The fix has hours, not weeks.',
+    date: '2026-11-23',
+    excerpt:
+      'AI can now find flaws in code and websites in days, and the window before a flaw is exploited has shrunk from weeks to hours. Here is what that means for a small business that has to keep its systems updated.',
+    image: '/blog/ai-vulnerability-window-days-not-weeks.jpg',
+    body: [
+      'This week felt like the internet was falling apart. Outlook went dark. Chase had problems. Apple systems had problems. Air traffic control systems had problems. It is tempting to see one big attack behind it all. Jon Reed at CNET, writing this week, says it is probably not one attack. It is a lot of separate failures in an internet that is getting more fragile, and AI is a big reason why.',
+      'Here is the number that stuck with me. The National Vulnerability Database received more than 17,000 new vulnerability reports in October, and more than 10,000 already in November. A year earlier, October brought fewer than 5,000. AI can now comb through code and websites for flaws, including code nobody used to look at closely. What once needed a trained team can now be done by one person with an AI model and the right tools. The flaws are being found faster than ever.',
+      'That sounds like good news for defence, and partly it is. Defenders use the same tools. But Reed’s line is the one that matters: "Before, it might have taken weeks before a newly discovered vulnerability could be exploited. Now it might take days, even hours." Faster discovery helps everyone, including the people who want to use the flaw. The window between a flaw being found and a flaw being used has shrunk from weeks to days, even hours.',
+      'For a small business, that changes what "keeping things updated" means. It used to mean getting around to updates when you had time. Now the update is a race, and the people running the race are automated. If you are responsible for a website, a booking system, or any of the things connected to the internet that may or may not still be maintained by their creators, you may not be paying attention and know you should update. You may find yourself liable if a breach leads to a leak of customer data. You may not have the know-how to fix it. That is the part of Reed’s article that hits closest to home for the businesses I work with.',
+      'And the problem is wider than websites. The same AI tools can pick apart firmware in refrigerators, smart home gadgets, and grocery store freezers, code that far fewer eyes ever reviewed. Reed cites a Swedish supermarket attack in which freezers were raised to 50 degrees Celsius and staff had to empty them. The backlog of critical fixes is now so large that companies are swamped, which is one reason your software seems to update constantly. Sometimes the patch itself causes the outage. Several recent high profile outages, including Apple’s, are believed to have been caused by software updates.',
+      'There is a second twist. AI is now writing a lot of the code itself, and some of it never gets reviewed by a human. Smaller teams, more AI-written code, and more junior developers leaning on AI without senior experience may mean new vulnerabilities are being written into new software and patches. The same technology is causing the problem, providing the solution, and complicating that solution.',
+      'So what do you actually do? The advice from the security people Reed quotes is simple and unglamorous: patch promptly. One of them compares it to a flu shot or preventative healthcare. Know what you have connected to the internet, know who maintains each piece, and make sure somebody is watching for updates and applying them quickly. Do not use services that do not properly maintain their systems and protect privacy and security. That is not a technology strategy. It is housekeeping, and it is now the difference between a quiet week and a breach.',
+      'There is a hopeful note at the end. One researcher Reed quotes expects two years of growing pains as vulnerabilities are found and patched, then software an order of magnitude more secure in a year or two. The flood of flaws being found now is, in a way, the system cleaning itself out. But those two years are exactly when a small business is most exposed, because the flaws are being found fast and the fixes still depend on someone paying attention.',
+      'That is the unglamorous work .EXE does: keeping a small business’s systems updated and connected, so the fix happens before the exploit. If you are not sure what you have connected, who maintains it, or when it was last updated, that is a good place to start. The intro call is free.',
+    ],
+    sources: [
+      {
+        label: 'Jon Reed, "Everything Is Falling Apart, and AI’s Fingerprints Are All Over It", CNET, November 20, 2026',
+        url: 'https://www.cnet.com/tech/services-and-software/outages-and-cyberattacks-everything-is-breaking-is-it-ai/',
+      },
+    ],
+  },
+  {
     slug: 'steeltech-rhysida-ransomware-lesson',
     title: 'A Canadian manufacturer was listed by a ransomware gang this week. Here’s the lesson for Halton small businesses',
     date: '2026-11-20',
