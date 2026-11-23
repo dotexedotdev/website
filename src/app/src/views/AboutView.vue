@@ -9,7 +9,7 @@ import { RouterLink } from 'vue-router'
       <h1>You work directly with the engineer solving the problem.</h1>
       <p class="lede">.EXE is a small, hands-on technology consultancy in Burlington, Ontario. No account managers or sales teams &mdash; you talk directly to the engineer doing the work.</p>
       <blockquote class="about-quote">
-        <img class="about-photo" src="/adam-photo.png" alt="Adam Stirtan" width="150" height="270" />
+        <img class="about-photo" src="/adam-photo.png" alt="Adam Stirtan" width="150" height="307" />
         <div>
           <p>&ldquo;I&rsquo;ve spent my career turning complicated technology problems into software that people can actually use &mdash; across software development, cloud infrastructure, automation, and AI.&rdquo;</p>
           <cite>&mdash; Adam Stirtan, founder of .EXE</cite>

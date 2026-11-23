@@ -68,7 +68,6 @@ const strip: System[] = Array.from({ length: REPS }, () => pool).flat()
 const currentPair = ref<Pair>(pairs[0] as Pair)
 const pairIndex = ref(0)
 const spinning = ref(false)
-const explainerVisible = ref(true)
 const paused = ref(false)
 const reduced = ref(false)
 
@@ -185,7 +184,6 @@ async function spin(): Promise<void> {
   if (spinning.value) return
   clearNextTimer()
   spinning.value = true
-  explainerVisible.value = false
 
   // Pick a new pair, different from the one showing.
   let nextIndex = pairIndex.value
@@ -203,7 +201,6 @@ async function spin(): Promise<void> {
 
   currentPair.value = nextPair
   pairIndex.value = nextIndex
-  explainerVisible.value = true
   spinning.value = false
   scheduleNext(5000)
 }
@@ -282,14 +279,12 @@ onUnmounted(() => {
         {{ currentPair.left }} plus {{ currentPair.right }}: {{ currentPair.explainer }}
       </p>
 
-      <Transition name="fade-slide" mode="out-in">
-        <div v-if="explainerVisible" :key="pairIndex" class="slot-explainer">
-          <p>
-            <strong>{{ currentPair.left }} + {{ currentPair.right }}</strong> &mdash;
-            {{ currentPair.explainer }}
-          </p>
-        </div>
-      </Transition>
+      <div class="slot-explainer">
+        <p>
+          <strong>{{ currentPair.left }} + {{ currentPair.right }}</strong> &mdash;
+          {{ currentPair.explainer }}
+        </p>
+      </div>
 
       <div class="slot-controls">
         <button class="btn btn-primary" type="button" :disabled="spinning" @click="spin">

@@ -24,7 +24,7 @@ import { RouterLink } from 'vue-router'
       </div>
       <p class="section-more"><RouterLink to="/about">More about .EXE &rarr;</RouterLink></p>
       <blockquote class="about-quote">
-        <img class="about-photo" src="/adam-photo.png" alt="Adam Stirtan" width="150" height="270" />
+        <img class="about-photo" src="/adam-photo.png" alt="Adam Stirtan" width="150" height="307" />
         <div>
           <p>&ldquo;I&rsquo;ve spent my career turning complicated technology problems into software that people can actually use &mdash; across software development, cloud infrastructure, automation, and AI.&rdquo;</p>
           <cite>&mdash; Adam Stirtan, founder of .EXE</cite>
