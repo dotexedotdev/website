@@ -39,7 +39,7 @@ jobs:
       - name: Publish Functions API
         run: >-
           dotnet publish src/api/Dotexe.Api/Dotexe.Api.csproj
-          --configuration Release --runtime linux-x64 --self-contained false
+          --configuration Release --runtime win-x64 --self-contained false
           --output artifacts/api
 
       # No GitHub Actions storage is used: no dependency cache and no
