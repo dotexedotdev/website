@@ -169,7 +169,7 @@ onUnmounted(() => {
       <span class="term-dot dot-red"></span>
       <span class="term-dot dot-yellow"></span>
       <span class="term-dot dot-green"></span>
-      <span class="term-title">.exe</span>
+      <span class="term-title">Adam.exe</span>
     </div>
     <div class="term-body" aria-hidden="true">
       <div v-for="(line, lineIndex) in LINES" :key="line.num" class="term-line">

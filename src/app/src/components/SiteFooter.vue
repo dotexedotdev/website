@@ -7,11 +7,11 @@ import { RouterLink } from 'vue-router'
     <div class="wrap">
       <div class="footer-grid">
         <div class="footer-brand">
-          <RouterLink class="logo footer-logo" to="/" aria-label=".EXE home"
-            ><img src="/logo-icon.png" alt="" width="64" height="64" /><span class="logo-mark">.exe</span></RouterLink
+          <RouterLink class="logo footer-logo" to="/" aria-label="Adam.exe home"
+            ><img src="/logo-icon.png" alt="" width="64" height="64" /><span class="logo-mark">Adam.exe</span></RouterLink
           >
           <p class="muted">Software that works for your business.</p>
-          <p class="muted">A small, hands-on technology consultancy in Burlington, Ontario &mdash; custom software, automation, and integrations for small businesses.</p>
+          <p class="muted">Adam Stirtan&rsquo;s small, hands-on technology consultancy in Burlington, Ontario: custom software, automation, and integrations for small businesses.</p>
         </div>
         <nav class="footer-col" aria-label="Explore">
           <h3>Explore</h3>
@@ -39,7 +39,7 @@ import { RouterLink } from 'vue-router'
         </div>
       </div>
       <div class="footer-bottom">
-        <p class="muted">&copy; 2026 .EXE &middot; Burlington, Ontario</p>
+        <p class="muted">&copy; 2026 Adam.exe &middot; Burlington, Ontario</p>
       </div>
     </div>
   </footer>

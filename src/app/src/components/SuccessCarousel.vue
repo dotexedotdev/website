@@ -77,7 +77,7 @@ onUnmounted(() => {
   <section class="section section-tint" id="stories">
     <div class="wrap">
       <p class="eyebrow">Success stories</p>
-      <h2>Things we&rsquo;ve built.</h2>
+      <h2>Things I&rsquo;ve built.</h2>
       <p class="section-intro">Real projects, told properly &mdash; each story shows what was built and why it mattered.</p>
 
       <div class="carousel" @mouseenter="onEnter" @mouseleave="onLeave">

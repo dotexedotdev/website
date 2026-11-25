@@ -7,8 +7,8 @@ import ContactMap from './ContactMap.vue'
   <section class="section contact" id="contact">
     <div class="wrap">
       <p class="eyebrow">Free consultation</p>
-      <h2>Tell us what&rsquo;s slowing you down.</h2>
-      <p class="section-intro">Book a free call or video call. We&rsquo;ll tell you honestly whether we can fix it &mdash; before you commit to anything.</p>
+      <h2>Tell me what&rsquo;s slowing you down.</h2>
+      <p class="section-intro">Book a free call or video call. I&rsquo;ll tell you honestly whether I can fix it before you commit to anything.</p>
 
       <div class="contact-grid">
         <ContactForm />

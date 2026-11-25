@@ -38,7 +38,7 @@ const LOGOS: Record<string, string> = {
 }
 
 const pairs: Pair[] = [
-  { left: 'Shopify', right: 'QuickBooks', explainer: 'We turn shoppers 🛒 into transactions 💰' },
+  { left: 'Shopify', right: 'QuickBooks', explainer: 'I turn shoppers 🛒 into transactions 💰' },
   { left: 'Stripe', right: 'QuickBooks', explainer: 'Every payment lands in your books automatically — no re-typing, no missed invoices.' },
   { left: 'Gmail', right: 'HubSpot', explainer: 'Emails become contacts, deals, and follow-ups — nothing slips through the cracks.' },
   { left: 'Shopify', right: 'ShipStation', explainer: 'Orders flow straight to shipping labels, tracking, and happy customers 📦' },
@@ -245,10 +245,10 @@ onUnmounted(() => {
   <section class="section slot" id="integrations" @mouseenter="onEnter" @mouseleave="onLeave">
     <div class="wrap">
       <p class="eyebrow">Integrations</p>
-      <h2>Pick any two systems. We&rsquo;ll connect them.</h2>
+      <h2>Pick any two systems. I&rsquo;ll connect them.</h2>
       <p class="section-intro">Your business already runs on a dozen tools. The trick is making them talk to each other.</p>
 
-      <div class="slot-reels" aria-label="Systems we connect">
+      <div class="slot-reels" aria-label="Systems I connect">
         <div ref="leftReelEl" class="slot-reel" :class="{ blur: leftBlur }" aria-hidden="true">
           <div
             class="slot-strip"

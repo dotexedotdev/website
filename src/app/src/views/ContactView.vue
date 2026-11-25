@@ -7,8 +7,8 @@ import ContactMap from '../components/ContactMap.vue'
   <section class="section">
     <div class="wrap">
       <p class="eyebrow">Contact</p>
-      <h1>Talk to us.</h1>
-      <p class="section-intro">Book a free call or video call &mdash; or reach out directly. We&rsquo;ll tell you honestly whether we can help, and what it would cost, before you commit to anything.</p>
+      <h1>Talk to me.</h1>
+      <p class="section-intro">Book a free call or video call, or reach out directly. I&rsquo;ll tell you honestly whether I can help, and what it would cost, before you commit to anything.</p>
 
       <div class="contact-grid">
         <ContactForm />

@@ -33,8 +33,8 @@ function goToPage(n: number): void {
   <section class="section">
     <div class="wrap">
       <p class="eyebrow">Blog</p>
-      <h1>Notes from .EXE</h1>
-      <p class="section-intro">Short reads on local tech, small-business systems, and the things we&rsquo;re thinking about.</p>
+      <h1>Notes from Adam.exe</h1>
+      <p class="section-intro">Short reads on local tech, small-business systems, and the things I&rsquo;m thinking about.</p>
 
       <p v-if="posts === null">Loading articles&hellip;</p>
 

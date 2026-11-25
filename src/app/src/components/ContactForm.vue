@@ -83,12 +83,12 @@ async function submit(): Promise<void> {
       <button class="btn btn-primary" type="submit" :disabled="sending">
         {{ sending ? 'Sending…' : 'Request a free consultation' }}
       </button>
-      <p class="form-note">No obligation, no sales pitch. If we can&rsquo;t help, we&rsquo;ll say so.</p>
+      <p class="form-note">No obligation, no sales pitch. If I can&rsquo;t help, I&rsquo;ll say so.</p>
       <p v-if="error" class="form-error" role="alert">{{ error }}</p>
     </form>
 
     <p v-else class="sent-banner" role="status">
-      Thanks &mdash; your message is on its way. We&rsquo;ll get back to you shortly.
+      Thanks, your message is on its way. I&rsquo;ll get back to you shortly.
     </p>
   </div>
 </template>

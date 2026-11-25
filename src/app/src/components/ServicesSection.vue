@@ -5,19 +5,19 @@ import { RouterLink } from 'vue-router'
 <template>
   <section class="section" id="services">
     <div class="wrap">
-      <p class="eyebrow">What we do</p>
+      <p class="eyebrow">What I do</p>
       <h2>Software built around your business, not the other way around.</h2>
-      <p class="section-intro">Custom software, automation, and integrations &mdash; built around the tools you already use.</p>
+      <p class="section-intro">Custom software, automation, and integrations, built around the tools you already use.</p>
       <div class="grid-2">
         <article class="card service">
           <div class="service-art"><img src="/assets/service-dashboard.png" alt="Illustration of a software dashboard" /></div>
           <h3>Custom Software</h3>
-          <p>Applications built around your workflows &mdash; tools, dashboards, portals, job management. When off-the-shelf doesn&rsquo;t fit, we build what does.</p>
+          <p>Applications built around your workflows: tools, dashboards, portals, job management. When off-the-shelf doesn&rsquo;t fit, I build what does.</p>
         </article>
         <article class="card service">
           <div class="service-art"><img src="/assets/service-workflow.png" alt="Illustration of documents flowing through a workflow" /></div>
           <h3>Automation</h3>
-          <p>Repetitive work, gone &mdash; and the systems you already use, connected.</p>
+          <p>Repetitive work, gone, and the systems you already use, connected.</p>
           <ul>
             <li>Automated notifications &amp; reminders</li>
             <li>Invoice &amp; payment workflows</li>
@@ -33,13 +33,13 @@ import { RouterLink } from 'vue-router'
         <article class="card service">
           <div class="service-art"><img src="/assets/service-videocall.png" alt="Illustration of two people in a video call" /></div>
           <h3>Technical Consulting</h3>
-          <p>Clear advice when the path isn&rsquo;t. Including the bill: we help businesses escape endless subscriptions for apps that work.</p>
+          <p>Clear advice when the path isn&rsquo;t. Including the bill: I help businesses escape endless subscriptions for apps that work.</p>
         </article>
       </div>
 
       <p class="section-more"><RouterLink to="/services">See all services &rarr;</RouterLink></p>
 
-      <div class="tech-logos" aria-label="Technologies we work with">
+      <div class="tech-logos" aria-label="Technologies I work with">
         <div class="tech-logo"><img src="/assets/microsoft.svg" alt="" /><span>Microsoft 365</span></div>
         <div class="tech-logo"><img src="/assets/microsoftazure.svg" alt="" /><span>Azure</span></div>
         <div class="tech-logo"><img src="/assets/logo-outlook.png" alt="" /><span>Microsoft Outlook</span></div>

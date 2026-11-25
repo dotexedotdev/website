@@ -12,8 +12,8 @@ function closeNav(): void {
 <template>
   <header class="site-header">
     <div class="wrap header-inner">
-      <RouterLink class="logo" to="/" aria-label=".EXE home" @click="closeNav"
-        ><img src="/logo-icon.png" alt="" width="40" height="40" /><span class="logo-mark">.exe</span></RouterLink
+      <RouterLink class="logo" to="/" aria-label="Adam.exe home" @click="closeNav"
+        ><img src="/logo-icon.png" alt="" width="40" height="40" /><span class="logo-mark">Adam.exe</span></RouterLink
       >
       <nav class="site-nav" :class="{ open: navOpen }" aria-label="Main navigation">
         <RouterLink to="/" @click="closeNav">Home</RouterLink>

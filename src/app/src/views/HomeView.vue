@@ -11,11 +11,11 @@ import ContactSection from '../components/ContactSection.vue'
 
 <template>
   <HeroSection />
+  <AboutSection />
   <ServicesSection />
   <SlotMachine />
   <HowItWorksSection />
   <SuccessCarousel />
-  <AboutSection />
   <FaqSection />
   <ContactSection />
 </template>

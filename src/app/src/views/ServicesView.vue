@@ -7,7 +7,7 @@ import { RouterLink } from 'vue-router'
     <div class="wrap">
       <p class="eyebrow">Services</p>
       <h1>Software built around your business, not the other way around.</h1>
-      <p class="section-intro">Custom business software, automation, and integrations &mdash; built around the tools your team already uses.</p>
+      <p class="section-intro">Custom business software, automation, and integrations, built around the tools your team already uses.</p>
     </div>
   </section>
 
@@ -30,7 +30,7 @@ import { RouterLink } from 'vue-router'
         <article class="card service" id="automation">
           <div class="service-art"><img src="/assets/service-workflow.png" alt="Illustration of documents flowing through a workflow" /></div>
           <h3>Automation</h3>
-          <p>Make repetitive administrative work happen automatically &mdash; and connect the systems you already use.</p>
+          <p>Make repetitive administrative work happen automatically, and connect the systems you already use.</p>
           <ul>
             <li>Automated notifications &amp; reminders</li>
             <li>Invoice &amp; payment workflows</li>
@@ -49,12 +49,12 @@ import { RouterLink } from 'vue-router'
             <li>Payments &amp; accounting</li>
             <li>Email &amp; calendars</li>
           </ul>
-          <p><RouterLink :to="{ path: '/', hash: '#integrations' }">See pairs we connect every day &rarr;</RouterLink></p>
+          <p><RouterLink :to="{ path: '/', hash: '#integrations' }">See pairs I connect every day &rarr;</RouterLink></p>
         </article>
         <article class="card service" id="consulting">
           <div class="service-art"><img src="/assets/service-videocall.png" alt="Illustration of two people in a video call" /></div>
           <h3>Technical Consulting</h3>
-          <p>Clear advice when the path isn&rsquo;t &mdash; including the bill. We help businesses escape endless subscriptions for cost-effective apps that work.</p>
+          <p>Clear advice when the path isn&rsquo;t, including the bill. I help businesses escape endless subscriptions for cost-effective apps that work.</p>
           <ul>
             <li>Software &amp; subscription cost reviews</li>
             <li>Choosing the right tools for your business</li>
@@ -63,7 +63,7 @@ import { RouterLink } from 'vue-router'
         </article>
       </div>
 
-      <div class="tech-logos" aria-label="Technologies we work with">
+      <div class="tech-logos" aria-label="Technologies I work with">
         <div class="tech-logo"><img src="/assets/microsoft.svg" alt="" /><span>Microsoft 365</span></div>
         <div class="tech-logo"><img src="/assets/microsoftazure.svg" alt="" /><span>Azure</span></div>
         <div class="tech-logo"><img src="/assets/logo-outlook.png" alt="" /><span>Microsoft Outlook</span></div>
@@ -83,8 +83,8 @@ import { RouterLink } from 'vue-router'
   <section class="section">
     <div class="wrap">
       <p class="eyebrow">How it works</p>
-      <h2>Talk to us for free. Know the cost before we build.</h2>
-      <p>Every engagement starts with a free consultation, then we agree the scope, then pricing in writing &mdash; before any work starts. The build is included, and your retainer covers hosting, monitoring, fixes, and changes.</p>
+      <h2>Talk to me for free. Know the cost before I build.</h2>
+      <p>Every engagement starts with a free consultation, then we agree the scope, then pricing in writing before any work starts. The build is included, and your retainer covers hosting, monitoring, fixes, and changes.</p>
       <p>
         <RouterLink class="btn btn-primary" to="/contact">Book a free call</RouterLink>
         &nbsp;

@@ -9,7 +9,7 @@
       </details>
       <details>
         <summary>How long does it take?</summary>
-        <p>Most systems are working within weeks, not months. We start with the smallest useful version, ship it, and improve it with real feedback.</p>
+        <p>Most systems are working within weeks, not months. I start with the smallest useful version, ship it, and improve it with real feedback.</p>
       </details>
       <details>
         <summary>Do I own the system?</summary>
@@ -17,11 +17,11 @@
       </details>
       <details>
         <summary>I already have software I like. Do I have to replace it?</summary>
-        <p>No. We build around the tools you already use and connect them, so the new system fits instead of disrupting.</p>
+        <p>No. I build around the tools you already use and connect them, so the new system fits instead of disrupting.</p>
       </details>
       <details>
         <summary>What happens after launch?</summary>
-        <p>The monthly retainer: monitoring, fixes, and ongoing changes as your business evolves. We keep iterating until the system fits &mdash; and keep fitting it as you grow.</p>
+        <p>The monthly retainer: monitoring, fixes, and ongoing changes as your business evolves. I keep iterating until the system fits, and keep fitting it as you grow.</p>
       </details>
       <details>
         <summary>Where are you based?</summary>
