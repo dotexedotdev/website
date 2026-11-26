@@ -28,7 +28,7 @@ function enlargeScreenshot(screenshot: ProjectScreenshot) {
         <h1 id="portfolio-title">Less chasing.<br />More getting done.</h1>
         <p class="lede">See how Adam.exe helps small teams replace manual work, connect their tools, and build what&rsquo;s missing.</p>
       </div>
-      <div class="capabilities">
+      <div class="capabilities glass-panel">
         <h2 class="eyebrow">What Adam.exe does</h2>
         <ul class="capability-grid" role="list">
           <li v-for="capability in capabilities" :key="capability.name">
@@ -123,10 +123,6 @@ function enlargeScreenshot(screenshot: ProjectScreenshot) {
 .capabilities {
   width: 100%;
   padding: clamp(14px, 2.5vw, 22px);
-  border: 1px solid rgba(165, 180, 252, 0.36);
-  border-radius: var(--radius);
-  background: linear-gradient(145deg, rgba(40, 43, 85, 0.95), rgba(18, 24, 42, 0.94));
-  box-shadow: 0 28px 64px rgba(8, 10, 28, 0.45);
 }
 .capabilities h2 { margin: 0 0 14px; font-weight: 600; }
 .capability-grid {
@@ -143,9 +139,9 @@ function enlargeScreenshot(screenshot: ProjectScreenshot) {
   gap: 6px;
   margin: 0;
   padding: clamp(10px, 1.5vw, 15px);
-  border: 1px solid rgba(165, 180, 252, 0.24);
+  border: 1px solid rgba(165, 180, 252, 0.16);
   border-radius: 10px;
-  background: rgba(255, 255, 255, 0.06);
+  background: rgba(12, 17, 36, 0.2);
 }
 .capability-grid svg { width: 22px; height: 22px; margin-bottom: 3px; color: var(--indigo-light); }
 .capability-grid strong { font-size: 0.98rem; line-height: 1.25; }

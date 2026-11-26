@@ -11,7 +11,7 @@ import ContactMap from '../components/ContactMap.vue'
         <h1>Let&rsquo;s talk about what&rsquo;s not working.</h1>
         <p class="section-intro">Tell me what you need help with. I&rsquo;ll reply by email to find a time for a free call.</p>
 
-        <aside class="contact-direct">
+        <aside class="contact-direct glass-panel">
           <h2>Prefer to reach out directly?</h2>
           <p><a href="tel:+13657781337">(365) 778-1337</a></p>
           <p><a href="mailto:inbox@dotexe.dev">inbox@dotexe.dev</a></p>
