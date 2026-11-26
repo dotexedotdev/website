@@ -63,7 +63,7 @@ const N = pool.length
 // rests in the middle copy and spins forward into the last copy, then snaps
 // back to the identical middle position (invisibly, with no transition).
 const REPS = 3
-const strip: System[] = Array.from({ length: REPS }, () => pool).flat()
+const strip: System[] = [...Array.from({ length: REPS }, () => pool).flat(), ...pool.slice(0, 2)]
 
 const currentPair = ref<Pair>(pairs[0] as Pair)
 const pairIndex = ref(0)
@@ -78,7 +78,7 @@ const tileH = ref(64)
 
 /** translateY that puts strip index `i` on the payline (middle row). */
 function yFor(i: number): number {
-  return -(i * tileH.value) + tileH.value
+  return (2 - i) * tileH.value
 }
 
 const leftCenter = ref(N + pool.findIndex((s) => s.name === 'Shopify'))
@@ -193,10 +193,10 @@ async function spin(): Promise<void> {
   const nextPair = pairs[nextIndex] as Pair
 
   // Both reels spin together — same start, same duration — and land together.
-  // Every spin lasts ~2s so it reads as a real spin, never a quick jump.
+  const durationMs = 2600
   await Promise.all([
-    scrollReel('left', nextPair.left, 0, 2000),
-    scrollReel('right', nextPair.right, 0, 2000),
+    scrollReel('left', nextPair.left, 0, durationMs),
+    scrollReel('right', nextPair.right, 0, durationMs),
   ])
 
   currentPair.value = nextPair
@@ -246,9 +246,23 @@ onUnmounted(() => {
     <div class="wrap">
       <p class="eyebrow">Integrations</p>
       <h2>Pick any two systems. I&rsquo;ll connect them.</h2>
-      <p class="section-intro">Your business already runs on a dozen tools. The trick is making them talk to each other.</p>
+
+      <p class="sr-only" aria-live="polite">
+        {{ currentPair.left }} plus {{ currentPair.right }}: {{ currentPair.explainer }}
+      </p>
+      <div class="slot-explainer">
+        <p>
+          <strong>{{ currentPair.left }} + {{ currentPair.right }}</strong>
+          {{ currentPair.explainer }}
+        </p>
+      </div>
 
       <div class="slot-reels" aria-label="Systems I connect">
+        <div class="slot-controls">
+          <button class="btn slot-spin" type="button" :aria-disabled="spinning || undefined" @click="spin">
+            <span aria-hidden="true">🎰</span> Spin the reels!
+          </button>
+        </div>
         <div ref="leftReelEl" class="slot-reel" :class="{ blur: leftBlur }" aria-hidden="true">
           <div
             class="slot-strip"
@@ -275,23 +289,6 @@ onUnmounted(() => {
           <div class="slot-payline"></div>
         </div>
       </div>
-      <p class="sr-only" aria-live="polite">
-        {{ currentPair.left }} plus {{ currentPair.right }}: {{ currentPair.explainer }}
-      </p>
-
-      <div class="slot-explainer">
-        <p>
-          <strong>{{ currentPair.left }} + {{ currentPair.right }}</strong> &mdash;
-          {{ currentPair.explainer }}
-        </p>
-      </div>
-
-      <div class="slot-controls">
-        <button class="btn btn-primary" type="button" :disabled="spinning" @click="spin">
-          {{ spinning ? 'Spinning…' : 'Spin the reels' }}
-        </button>
-      </div>
-
       <p class="slot-cta">
         Want your two systems connected?
         <RouterLink to="/contact">Book a free call &rarr;</RouterLink>

@@ -86,8 +86,11 @@ Where the values go — never in the repo:
 
 - No dollar figures anywhere on the site. Pricing is shown in the proposal
   after scope is agreed — never published.
-- The homepage and Portfolio page show the restoration workflow without naming the client. Get
-  Jon's approval before publishing the client's name or project screenshots.
+- The homepage carousel and the Norgard Restoration case study share the same screenshots.
+  Confirm Jon's approval before publishing the case study or client screenshots.
+- Edit the expandable Portfolio entries in `src/app/src/views/portfolioProjects.ts`.
+  Screenshots and captioned videos can be served from `src/app/public/assets/`.
+  Keep fictional work labeled as a concept and list only confirmed technologies for real projects.
 - The earlier static single-page version of the site lives on `main`
   (commit `93bbf8f`); this branch (`vue-rebuild`) replaces it with the Vue
   app. The static files were the design and copy reference for the port.

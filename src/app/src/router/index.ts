@@ -1,6 +1,5 @@
 import { createRouter, createWebHistory, type RouteRecordRaw } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
-import ServicesView from '../views/ServicesView.vue'
 import PortfolioView from '../views/PortfolioView.vue'
 import ContactView from '../views/ContactView.vue'
 import BlogListView from '../views/BlogListView.vue'
@@ -9,7 +8,7 @@ import BlogPostView from '../views/BlogPostView.vue'
 const routes: RouteRecordRaw[] = [
   { path: '/', name: 'home', component: HomeView },
   { path: '/about', redirect: { name: 'home', hash: '#about' } },
-  { path: '/services', name: 'services', component: ServicesView },
+  { path: '/services', redirect: (to) => ({ name: 'home', hash: to.hash === '#integration-demo' ? to.hash : '#services' }) },
   { path: '/portfolio', name: 'portfolio', component: PortfolioView },
   { path: '/support', redirect: { name: 'home', hash: '#how' } },
   { path: '/contact', name: 'contact', component: ContactView },

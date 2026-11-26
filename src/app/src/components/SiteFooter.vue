@@ -16,17 +16,14 @@ import { RouterLink } from 'vue-router'
         <nav class="footer-col" aria-label="Explore">
           <h3>Explore</h3>
           <RouterLink to="/">Home</RouterLink>
-          <RouterLink to="/services">Services</RouterLink>
           <RouterLink to="/portfolio">Portfolio</RouterLink>
           <RouterLink to="/blog">Blog</RouterLink>
           <RouterLink to="/contact">Contact</RouterLink>
         </nav>
         <nav class="footer-col" aria-label="Services">
           <h3>Services</h3>
-          <RouterLink to="/services#custom-software">Custom Software</RouterLink>
-          <RouterLink to="/services#automation">Automation</RouterLink>
-          <RouterLink to="/services#integrations">Integrations</RouterLink>
-          <RouterLink to="/services#consulting">Technical Consulting</RouterLink>
+          <RouterLink to="/#services">What I can help with</RouterLink>
+          <RouterLink to="/#integration-demo">Try the integrations demo</RouterLink>
         </nav>
         <div class="footer-col">
           <h3>Get in touch</h3>

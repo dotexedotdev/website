@@ -17,7 +17,6 @@ function closeNav(): void {
       >
       <nav class="site-nav" :class="{ open: navOpen }" aria-label="Main navigation">
         <RouterLink to="/" @click="closeNav">Home</RouterLink>
-        <RouterLink to="/services" @click="closeNav">Services</RouterLink>
         <RouterLink to="/portfolio" @click="closeNav">Portfolio</RouterLink>
       </nav>
       <div class="header-actions">

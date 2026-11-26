@@ -4,6 +4,7 @@ import ServicesSection from '../components/ServicesSection.vue'
 import FeaturedProject from '../components/FeaturedProject.vue'
 import AboutSection from '../components/AboutSection.vue'
 import ContactSection from '../components/ContactSection.vue'
+import SlotMachine from '../components/SlotMachine.vue'
 </script>
 
 <template>
@@ -12,4 +13,5 @@ import ContactSection from '../components/ContactSection.vue'
   <ServicesSection />
   <FeaturedProject />
   <ContactSection />
+  <SlotMachine />
 </template>
