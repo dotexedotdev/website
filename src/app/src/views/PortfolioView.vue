@@ -41,6 +41,26 @@ import FeaturedProject from '../components/FeaturedProject.vue'
     </div>
   </section>
 
+  <section class="section" aria-labelledby="gallery-title">
+    <div class="wrap">
+      <p class="eyebrow">Gallery</p>
+      <h2 id="gallery-title">More work.</h2>
+      <div class="project-gallery">
+        <article class="project-card">
+          <a class="project-card-media" href="https://www.classzoo.app" target="_blank" rel="noopener">
+            <img src="/assets/classzoo-preview.png" alt="ClassZoo preview with attendance, family messaging, student profiles, and invoicing" loading="lazy" />
+          </a>
+          <div class="project-card-body">
+            <p class="eyebrow">App / Preschool operations</p>
+            <h3>ClassZoo</h3>
+            <p>I built ClassZoo to help preschools run attendance, family messaging, student profiles, and invoicing in one place, with private AI built in.</p>
+            <a class="project-card-link" href="https://www.classzoo.app" target="_blank" rel="noopener">Visit ClassZoo <span aria-hidden="true">&rarr;</span></a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
   <section class="section section-tint">
     <div class="wrap">
       <h2>Where does work get held up for your team?</h2>

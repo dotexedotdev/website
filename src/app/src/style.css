@@ -771,6 +771,24 @@ section[id] { scroll-margin-top: 84px; }
 @media (max-width: 700px) {
   .featured-project-grid, .home-split, .service-guide, .service-entry:first-child { grid-template-columns: minmax(0, 1fr); }
 }
+.project-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+  gap: 20px;
+  margin-top: 24px;
+}
+.project-card {
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: #ffffff;
+  box-shadow: 0 1px 3px rgba(26, 34, 51, 0.05);
+}
+.project-card-media { display: block; background: var(--gradient-dark); }
+.project-card-media img { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; }
+.project-card-body { padding: 22px; }
+.project-card-body h3 { margin-bottom: 0.35em; }
+.project-card-link { font-weight: 700; }
 
 /* Blog */
 .blog-index-intro { background: var(--gradient-dark); color: #fff; }
