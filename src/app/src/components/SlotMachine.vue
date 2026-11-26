@@ -242,7 +242,7 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <section class="section slot" id="integrations" @mouseenter="onEnter" @mouseleave="onLeave">
+  <section class="section slot" id="integration-demo" @mouseenter="onEnter" @mouseleave="onLeave">
     <div class="wrap">
       <p class="eyebrow">Integrations</p>
       <h2>Pick any two systems. I&rsquo;ll connect them.</h2>

@@ -16,12 +16,10 @@ import { RouterLink } from 'vue-router'
         <nav class="footer-col" aria-label="Explore">
           <h3>Explore</h3>
           <RouterLink to="/">Home</RouterLink>
-          <RouterLink to="/about">About</RouterLink>
           <RouterLink to="/services">Services</RouterLink>
-          <RouterLink to="/support">Support</RouterLink>
+          <RouterLink to="/portfolio">Portfolio</RouterLink>
           <RouterLink to="/blog">Blog</RouterLink>
           <RouterLink to="/contact">Contact</RouterLink>
-          <RouterLink :to="{ path: '/', hash: '#reviews' }">Reviews</RouterLink>
         </nav>
         <nav class="footer-col" aria-label="Services">
           <h3>Services</h3>

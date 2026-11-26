@@ -1,57 +1,31 @@
-<script setup lang="ts">
-import { RouterLink } from 'vue-router'
-</script>
-
 <template>
-  <section class="section" id="services">
-    <div class="wrap">
-      <p class="eyebrow">What I do</p>
-      <h2>Software built around your business, not the other way around.</h2>
-      <p class="section-intro">Custom software, automation, and integrations, built around the tools you already use.</p>
-      <div class="grid-2">
-        <article class="card service">
-          <div class="service-art"><img src="/assets/service-dashboard.png" alt="Illustration of a software dashboard" /></div>
-          <h3>Custom Software</h3>
-          <p>Applications built around your workflows: tools, dashboards, portals, job management. When off-the-shelf doesn&rsquo;t fit, I build what does.</p>
-        </article>
-        <article class="card service">
-          <div class="service-art"><img src="/assets/service-workflow.png" alt="Illustration of documents flowing through a workflow" /></div>
-          <h3>Automation</h3>
-          <p>Repetitive work, gone, and the systems you already use, connected.</p>
-          <ul>
-            <li>Automated notifications &amp; reminders</li>
-            <li>Invoice &amp; payment workflows</li>
-            <li>Document generation &amp; signatures</li>
-            <li>AI-assisted workflows</li>
-          </ul>
-        </article>
-        <article class="card service">
-          <div class="service-art"><img src="/assets/service-integrations.png" alt="Illustration of people and systems connected together" /></div>
-          <h3>Integrations</h3>
-          <p>Your CRM, documents, payments, and communications share the same information automatically. No re-typing, no wondering which copy is current.</p>
-        </article>
-        <article class="card service">
-          <div class="service-art"><img src="/assets/service-videocall.png" alt="Illustration of two people in a video call" /></div>
-          <h3>Technical Consulting</h3>
-          <p>Clear advice when the path isn&rsquo;t. Including the bill: I help businesses escape endless subscriptions for apps that work.</p>
-        </article>
+  <section class="section" id="services" aria-labelledby="home-services-title">
+    <div class="wrap home-split">
+      <div>
+        <p class="eyebrow">Working together</p>
+        <h2 id="home-services-title">Start with what isn&rsquo;t working.</h2>
+        <p class="section-intro home-process" id="how">We&rsquo;ll talk it through on a free call. If I can help, you&rsquo;ll get a recommendation and a written quote before you decide.</p>
       </div>
-
-      <p class="section-more"><RouterLink to="/services">See all services &rarr;</RouterLink></p>
-
-      <div class="tech-logos" aria-label="Technologies I work with">
-        <div class="tech-logo"><img src="/assets/microsoft.svg" alt="" /><span>Microsoft 365</span></div>
-        <div class="tech-logo"><img src="/assets/microsoftazure.svg" alt="" /><span>Azure</span></div>
-        <div class="tech-logo"><img src="/assets/logo-outlook.png" alt="" /><span>Microsoft Outlook</span></div>
-        <div class="tech-logo"><img src="/assets/logo-google.png" alt="" /><span>Google Workspace</span></div>
-        <div class="tech-logo"><img src="/assets/logo-google-cloud.png" alt="" /><span>Google Cloud</span></div>
-        <div class="tech-logo"><img src="/assets/logo-gmail.png" alt="" /><span>Gmail</span></div>
-        <div class="tech-logo"><img src="/assets/logo-aws.png" alt="" /><span>AWS</span></div>
-        <div class="tech-logo"><img src="/assets/github.svg" alt="" /><span>GitHub</span></div>
-        <div class="tech-logo"><img src="/assets/logo-openai.png" alt="" /><span>OpenAI</span></div>
-        <div class="tech-logo"><img src="/assets/logo-supabase.png" alt="" /><span>Supabase</span></div>
-        <div class="tech-logo"><img src="/assets/csharp.svg" alt="" /><span>C# / .NET</span></div>
-        <div class="tech-logo"><img src="/assets/linux.svg" alt="" /><span>Linux</span></div>
+      <div>
+        <p class="eyebrow">What I can help with</p>
+        <div class="disclosure-list">
+          <details>
+            <summary>Choose the right tools</summary>
+            <p>Get a second opinion before buying software. I can review what you already pay for and help you decide what to keep, replace, or cancel.</p>
+          </details>
+          <details>
+            <summary>Connect the apps you use</summary>
+            <p>Keep customer records, accounting, or bookings in sync so your team doesn&rsquo;t have to enter the same information twice.</p>
+          </details>
+          <details>
+            <summary>Automate routine work</summary>
+            <p>Send reminders, generate paperwork for signature, or follow up on invoices without someone having to remember each step.</p>
+          </details>
+          <details>
+            <summary>Build a tool that fits</summary>
+            <p>If you&rsquo;ve outgrown a spreadsheet, I can build a dashboard, customer portal, or job tracker around how your team works.</p>
+          </details>
+        </div>
       </div>
     </div>
   </section>

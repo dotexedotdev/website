@@ -1,17 +1,17 @@
 import { createRouter, createWebHistory, type RouteRecordRaw } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
-import AboutView from '../views/AboutView.vue'
 import ServicesView from '../views/ServicesView.vue'
-import SupportView from '../views/SupportView.vue'
+import PortfolioView from '../views/PortfolioView.vue'
 import ContactView from '../views/ContactView.vue'
 import BlogListView from '../views/BlogListView.vue'
 import BlogPostView from '../views/BlogPostView.vue'
 
 const routes: RouteRecordRaw[] = [
   { path: '/', name: 'home', component: HomeView },
-  { path: '/about', name: 'about', component: AboutView },
+  { path: '/about', redirect: { name: 'home', hash: '#about' } },
   { path: '/services', name: 'services', component: ServicesView },
-  { path: '/support', name: 'support', component: SupportView },
+  { path: '/portfolio', name: 'portfolio', component: PortfolioView },
+  { path: '/support', redirect: { name: 'home', hash: '#how' } },
   { path: '/contact', name: 'contact', component: ContactView },
   { path: '/blog', name: 'blog', component: BlogListView },
   { path: '/blog/:slug', name: 'blog-post', component: BlogPostView, props: true },
@@ -26,7 +26,12 @@ export const router = createRouter({
     if (to.hash) {
       // Wait a tick so the target view has mounted before scrolling to it.
       return new Promise((resolve) => {
-        window.setTimeout(() => resolve({ el: to.hash, behavior: 'smooth' }), 60)
+        window.setTimeout(() => {
+          const target = document.getElementById(to.hash.slice(1))
+          if (!target) return resolve({ top: 0 })
+          const top = Number.parseFloat(getComputedStyle(target).scrollMarginTop) || 0
+          resolve({ el: target, top, behavior: 'smooth' })
+        }, 60)
       })
     }
     return { top: 0 }

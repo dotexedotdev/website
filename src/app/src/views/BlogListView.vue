@@ -30,12 +30,16 @@ function goToPage(n: number): void {
 </script>
 
 <template>
-  <section class="section">
+  <header class="section blog-index-intro">
     <div class="wrap">
-      <p class="eyebrow">Blog</p>
-      <h1>Notes from Adam.exe</h1>
-      <p class="section-intro">Short reads on local tech, small-business systems, and the things I&rsquo;m thinking about.</p>
+      <p class="eyebrow">Insights on local tech</p>
+      <h1>Blog</h1>
+      <p class="section-intro">Short reads on local tech and practical IT for small businesses.</p>
+    </div>
+  </header>
 
+  <section class="section section-tint" aria-label="Blog articles">
+    <div class="wrap">
       <p v-if="posts === null">Loading articles&hellip;</p>
 
       <template v-else>
@@ -46,6 +50,7 @@ function goToPage(n: number): void {
             :alt="`Illustrative image for: ${featured.title}`"
             class="blog-card-image"
           />
+          <p class="eyebrow">Latest article</p>
           <p class="blog-date">{{ formatDate(featured.date) }}</p>
           <h2>
             <RouterLink :to="`/blog/${featured.slug}`">{{ featured.title }}</RouterLink>

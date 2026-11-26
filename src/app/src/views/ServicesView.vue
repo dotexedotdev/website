@@ -1,84 +1,81 @@
 <script setup lang="ts">
 import { RouterLink } from 'vue-router'
+import SlotMachine from '../components/SlotMachine.vue'
+import TechLogos from '../components/TechLogos.vue'
+
+const services = [
+  {
+    id: 'consulting',
+    name: 'IT consulting',
+    heading: 'Get a second opinion before you spend.',
+    description: 'I’ll help you decide what to keep, what to replace, and what isn’t worth paying for.',
+    examples: ['Review software and subscription costs', 'Compare tools before you commit', 'Plan and roll out changes'],
+  },
+  {
+    id: 'integrations',
+    name: 'Integrations',
+    heading: 'Enter information once.',
+    description: 'Connect the apps you already use so they can share updates.',
+    examples: ['Sync customer records', 'Send payments to accounting', 'Connect bookings and calendars'],
+  },
+  {
+    id: 'automation',
+    name: 'Automation',
+    heading: 'Stop chasing the same tasks.',
+    description: 'Keep work moving without relying on someone to remember every step.',
+    examples: ['Send reminders and status updates', 'Generate paperwork for signature', 'Follow up on unpaid invoices'],
+  },
+  {
+    id: 'custom-software',
+    name: 'Custom software',
+    heading: 'Build what’s missing.',
+    description: 'Replace a spreadsheet you’ve outgrown with a tool that fits how your team works.',
+    examples: ['Internal dashboards', 'Customer self-service portals', 'Job trackers and business apps'],
+  },
+]
 </script>
 
 <template>
-  <section class="section">
+  <section class="section services-intro">
     <div class="wrap">
       <p class="eyebrow">Services</p>
-      <h1>Software built around your business, not the other way around.</h1>
-      <p class="section-intro">Custom business software, automation, and integrations, built around the tools your team already uses.</p>
+      <h1>Get the right help for what&rsquo;s not working.</h1>
+      <p class="section-intro">From a second opinion to a custom build, we&rsquo;ll start with what your business actually needs.</p>
+      <ul class="service-pills" role="list">
+        <li v-for="service in services" :key="service.id">{{ service.name }}</li>
+      </ul>
     </div>
   </section>
 
-  <section class="section section-tint">
+  <section class="section">
     <div class="wrap">
-      <div class="grid-2">
-        <article class="card service" id="custom-software">
-          <div class="service-art"><img src="/assets/service-dashboard.png" alt="Illustration of a software dashboard" /></div>
-          <h3>Custom Software</h3>
-          <p>When spreadsheets and off-the-shelf software aren&rsquo;t quite right, build something around the way your business actually works.</p>
-          <ul>
-            <li>Internal business apps</li>
-            <li>Dashboards</li>
-            <li>Customer portals</li>
-            <li>Mobile apps</li>
-            <li>Custom databases</li>
-            <li>Integrations with existing software</li>
-          </ul>
+      <div class="service-guide">
+        <article v-for="service in services" :id="service.id" :key="service.id" class="service-entry">
+          <div>
+            <p class="eyebrow">{{ service.name }}</p>
+            <h2>{{ service.heading }}</h2>
+            <p>{{ service.description }}</p>
+          </div>
+          <div class="service-examples">
+            <ul>
+              <li v-for="example in service.examples" :key="example">{{ example }}</li>
+            </ul>
+            <a v-if="service.id === 'integrations'" href="#integration-demo">Try the demo <span aria-hidden="true">&rarr;</span></a>
+          </div>
         </article>
-        <article class="card service" id="automation">
-          <div class="service-art"><img src="/assets/service-workflow.png" alt="Illustration of documents flowing through a workflow" /></div>
-          <h3>Automation</h3>
-          <p>Make repetitive administrative work happen automatically, and connect the systems you already use.</p>
-          <ul>
-            <li>Automated notifications &amp; reminders</li>
-            <li>Invoice &amp; payment workflows</li>
-            <li>Document generation &amp; signatures</li>
-            <li>Connecting apps together</li>
-            <li>AI-assisted workflows</li>
-          </ul>
-        </article>
-        <article class="card service" id="integrations">
-          <div class="service-art"><img src="/assets/service-integrations.png" alt="Illustration of people and systems connected together" /></div>
-          <h3>Integrations</h3>
-          <p>Your CRM, documents, payments, and communications share the same information automatically. No re-typing, no wondering which copy is current.</p>
-          <ul>
-            <li>CRM &amp; sales systems</li>
-            <li>Documents &amp; signatures</li>
-            <li>Payments &amp; accounting</li>
-            <li>Email &amp; calendars</li>
-          </ul>
-          <p><RouterLink :to="{ path: '/', hash: '#integrations' }">See pairs I connect every day &rarr;</RouterLink></p>
-        </article>
-        <article class="card service" id="consulting">
-          <div class="service-art"><img src="/assets/service-videocall.png" alt="Illustration of two people in a video call" /></div>
-          <h3>Technical Consulting</h3>
-          <p>Clear advice when the path isn&rsquo;t, including the bill. I help businesses escape endless subscriptions for cost-effective apps that work.</p>
-          <ul>
-            <li>Software &amp; subscription cost reviews</li>
-            <li>Choosing the right tools for your business</li>
-            <li>In-person &amp; remote help along the way</li>
-          </ul>
-        </article>
-      </div>
-
-      <div class="tech-logos" aria-label="Technologies I work with">
-        <div class="tech-logo"><img src="/assets/microsoft.svg" alt="" /><span>Microsoft 365</span></div>
-        <div class="tech-logo"><img src="/assets/microsoftazure.svg" alt="" /><span>Azure</span></div>
-        <div class="tech-logo"><img src="/assets/logo-outlook.png" alt="" /><span>Microsoft Outlook</span></div>
-        <div class="tech-logo"><img src="/assets/logo-google.png" alt="" /><span>Google Workspace</span></div>
-        <div class="tech-logo"><img src="/assets/logo-google-cloud.png" alt="" /><span>Google Cloud</span></div>
-        <div class="tech-logo"><img src="/assets/logo-gmail.png" alt="" /><span>Gmail</span></div>
-        <div class="tech-logo"><img src="/assets/logo-aws.png" alt="" /><span>AWS</span></div>
-        <div class="tech-logo"><img src="/assets/github.svg" alt="" /><span>GitHub</span></div>
-        <div class="tech-logo"><img src="/assets/logo-openai.png" alt="" /><span>OpenAI</span></div>
-        <div class="tech-logo"><img src="/assets/logo-supabase.png" alt="" /><span>Supabase</span></div>
-        <div class="tech-logo"><img src="/assets/csharp.svg" alt="" /><span>C# / .NET</span></div>
-        <div class="tech-logo"><img src="/assets/linux.svg" alt="" /><span>Linux</span></div>
       </div>
     </div>
   </section>
+
+  <section class="section tools-section" aria-labelledby="tools-title">
+    <div class="wrap">
+      <p class="eyebrow">The tech stack</p>
+      <h2 id="tools-title">Tools I work with</h2>
+      <TechLogos />
+    </div>
+  </section>
+
+  <SlotMachine />
 
   <section class="section">
     <div class="wrap">
@@ -87,8 +84,6 @@ import { RouterLink } from 'vue-router'
       <p>Every engagement starts with a free consultation, then we agree the scope, then pricing in writing before any work starts. The build is included, and your retainer covers hosting, monitoring, fixes, and changes.</p>
       <p>
         <RouterLink class="btn btn-primary" to="/contact">Book a free call</RouterLink>
-        &nbsp;
-        <RouterLink class="btn btn-ghost" to="/support">How support works</RouterLink>
       </p>
     </div>
   </section>
