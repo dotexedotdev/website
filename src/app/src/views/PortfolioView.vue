@@ -74,7 +74,7 @@ function enlargeScreenshot(screenshot: ProjectScreenshot) {
                 Visit {{ project.name }} <span aria-hidden="true">&rarr;</span>
               </a>
             </div>
-            <div v-if="project.media.kind === 'screenshots'" class="project-media project-screenshots">
+            <div v-if="project.media.kind === 'screenshots'" class="project-media project-screenshots" :class="{ 'project-screenshots-portrait': project.media.layout === 'portrait' }">
               <button v-for="image in project.media.images" :key="image.src" type="button" :aria-label="`Enlarge ${project.name}: ${image.title}`" @click="enlargeScreenshot(image)">
                 <img :src="image.src" alt="" :width="image.width" :height="image.height" loading="lazy" />
                 <span>{{ image.title }}</span>
@@ -173,6 +173,8 @@ function enlargeScreenshot(screenshot: ProjectScreenshot) {
   list-style: none;
 }
 .project-summary::-webkit-details-marker { display: none; }
+.project-panel[open] .project-summary { border-radius: var(--radius) var(--radius) 0 0; }
+.project-panel[open] .project-summary:not(:hover) { background: #f7f7f8; }
 .project-summary:hover { background: var(--indigo-soft); }
 .project-summary:focus-visible { outline-offset: -3px; }
 .project-logo {
@@ -228,7 +230,6 @@ function enlargeScreenshot(screenshot: ProjectScreenshot) {
   gap: clamp(20px, 4vw, 40px);
   margin: 0 var(--panel-padding);
   padding: var(--panel-padding) 0;
-  border-top: 1px solid var(--line);
 }
 .project-body p { color: var(--muted); }
 .project-stack { font-weight: 700; }
@@ -256,7 +257,9 @@ function enlargeScreenshot(screenshot: ProjectScreenshot) {
   font-weight: 600;
   cursor: zoom-in;
 }
-.project-screenshots button:first-child { grid-column: 1 / -1; }
+.project-screenshots:not(.project-screenshots-portrait) button:first-child { grid-column: 1 / -1; }
+.project-screenshots-portrait { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(6px, 1vw, 12px); }
+.project-screenshots-portrait button { display: flex; flex-direction: column; align-items: stretch; }
 .project-screenshots button:hover { border-color: var(--indigo); }
 .project-screenshots button span { display: block; padding: 4px 8px; }
 .screenshot-dialog {

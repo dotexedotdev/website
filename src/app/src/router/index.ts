@@ -8,9 +8,9 @@ import BlogPostView from '../views/BlogPostView.vue'
 const routes: RouteRecordRaw[] = [
   { path: '/', name: 'home', component: HomeView },
   { path: '/about', redirect: { name: 'home', hash: '#about' } },
-  { path: '/services', redirect: (to) => ({ name: 'home', hash: to.hash === '#integration-demo' ? to.hash : '#services' }) },
+  { path: '/services', redirect: (to) => to.hash === '#integration-demo' ? { name: 'home', hash: '#integration-demo' } : { name: 'portfolio', hash: '' } },
   { path: '/portfolio', name: 'portfolio', component: PortfolioView },
-  { path: '/support', redirect: { name: 'home', hash: '#how' } },
+  { path: '/support', redirect: { name: 'home', hash: '#contact' } },
   { path: '/contact', name: 'contact', component: ContactView },
   { path: '/blog', name: 'blog', component: BlogListView },
   { path: '/blog/:slug', name: 'blog-post', component: BlogPostView, props: true },

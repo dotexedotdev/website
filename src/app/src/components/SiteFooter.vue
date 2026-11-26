@@ -22,7 +22,7 @@ import { RouterLink } from 'vue-router'
         </nav>
         <nav class="footer-col" aria-label="Services">
           <h3>Services</h3>
-          <RouterLink to="/#services">What I can help with</RouterLink>
+          <RouterLink to="/portfolio">What I can help with</RouterLink>
           <RouterLink to="/#integration-demo">Try the integrations demo</RouterLink>
         </nav>
         <div class="footer-col">

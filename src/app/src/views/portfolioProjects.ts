@@ -17,7 +17,7 @@ type ProjectMedia =
   | { kind: 'image'; src: string; alt: string; width: number; height: number; caption: string }
   | { kind: 'video'; src: string; captions: string; caption: string }
   | { kind: 'mockup'; title: string; rows: { label: string; status: string }[] }
-  | { kind: 'screenshots'; images: readonly ProjectScreenshot[] }
+  | { kind: 'screenshots'; images: readonly ProjectScreenshot[]; layout?: 'portrait' }
 
 interface Project {
   name: string
@@ -57,15 +57,16 @@ export const portfolioProjects: readonly Project[] = [
     tone: 'indigo',
     synopsis: 'One place for preschools to handle attendance, family messages, student profiles, and invoicing.',
     description: 'ClassZoo gives teachers and administrators a shared place to manage the school day. Teachers can take attendance and message families, while administrators keep student records and invoicing in the same app. It also includes private AI.',
+    technologies: ['Flutter', 'Azure'],
     media: {
-      kind: 'image',
-      src: '/assets/classzoo-preview.png',
-      alt: 'ClassZoo product graphic highlighting attendance, family messaging, student profiles, and invoicing',
-      width: 1600,
-      height: 900,
-      caption: 'ClassZoo product overview',
+      kind: 'screenshots',
+      layout: 'portrait',
+      images: [
+        { src: '/assets/classzoo-student-profiles.png', title: 'Student profiles', width: 768, height: 1668 },
+        { src: '/assets/classzoo-parent-messaging.png', title: 'Parent messaging', width: 768, height: 1668 },
+        { src: '/assets/classzoo-programs.png', title: 'Program details', width: 768, height: 1668 },
+      ],
     },
-    url: 'https://www.classzoo.app',
   },
   {
     name: 'Photomosaic NES',
@@ -84,43 +85,5 @@ export const portfolioProjects: readonly Project[] = [
       ],
     },
     url: 'https://adamstirtan.github.io/photomosaic-nes/',
-  },
-  {
-    name: 'Juniper Supply Co.',
-    category: 'Inventory visibility',
-    concept: true,
-    logo: 'm12 3 8 4.5v9L12 21l-8-4.5v-9L12 3Zm-8 4.5 8 4.5 8-4.5M12 12v9M8 5.25l8 4.5',
-    tone: 'amber',
-    synopsis: 'A shared stock dashboard so a wholesale team can spot shortages before promising a delivery.',
-    description: 'The dashboard would bring warehouse counts and open orders into one view, showing sales staff what’s actually available to promise. Buyers could review items approaching their reorder point and see which products already have an incoming shipment.',
-    technologies: ['Google Workspace', 'Supabase', 'GitHub'],
-    media: {
-      kind: 'mockup',
-      title: 'Stock watchlist',
-      rows: [
-        { label: 'Packing tape · 12 on hand', status: 'Reorder' },
-        { label: 'Shipping cartons · 64 on hand', status: 'Incoming' },
-        { label: 'Label rolls · 120 on hand', status: 'In stock' },
-      ],
-    },
-  },
-  {
-    name: 'Alder & Finch Studio',
-    category: 'Client onboarding',
-    concept: true,
-    logo: 'M5 4h10l4 4v12H5V4Zm9 0v5h5M8 13l2 2 4-4M8 17h7',
-    tone: 'violet',
-    synopsis: 'A repeatable intake workflow that tracks approvals and missing files before a project starts.',
-    description: 'An approved proposal would create a checklist and a client folder automatically. The studio could see which files had arrived, send a reminder for missing items, and hand off a complete brief to the project team instead of piecing one together from email.',
-    technologies: ['Microsoft 365', 'Azure', 'C# / .NET'],
-    media: {
-      kind: 'mockup',
-      title: 'New client checklist',
-      rows: [
-        { label: 'Proposal approval', status: 'Complete' },
-        { label: 'Brand files', status: 'Waiting' },
-        { label: 'Kickoff brief', status: 'Draft' },
-      ],
-    },
   },
 ]

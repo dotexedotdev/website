@@ -17,6 +17,7 @@ export const techLogos = {
   ...defaultTechLogos,
   Vue: 'vue.svg',
   Airtable: 'logo-airtable.svg',
+  Flutter: 'flutter.svg',
 } as const
 
 export type Technology = keyof typeof techLogos

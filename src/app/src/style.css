@@ -404,39 +404,8 @@ section[id] { scroll-margin-top: 84px; }
   gap: clamp(28px, 6vw, 72px);
   align-items: start;
 }
-.home-process { scroll-margin-top: 84px; }
 .home-contact .contact-direct { margin-top: 2em; }
 .home-contact .contact-direct a { overflow-wrap: anywhere; }
-
-/* Expandable panels */
-.disclosure-list { max-width: 780px; }
-.disclosure-list details {
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: var(--bg-card);
-  padding: 0 24px;
-  margin-bottom: 12px;
-  box-shadow: 0 1px 3px rgba(26, 34, 51, 0.04);
-}
-.disclosure-list summary {
-  display: flex;
-  justify-content: space-between;
-  gap: 12px;
-  cursor: pointer;
-  font-weight: 700;
-  font-size: 1.05rem;
-  padding: 20px 0;
-  list-style: none;
-}
-.disclosure-list summary::-webkit-details-marker { display: none; }
-.disclosure-list summary::after {
-  content: "+";
-  color: var(--indigo);
-  font-family: var(--font-mono);
-  font-weight: 700;
-}
-.disclosure-list details[open] summary::after { content: "–"; }
-.disclosure-list details p { color: var(--muted); padding-bottom: 20px; }
 
 /* Contact */
 .contact { background: var(--bg-soft); }
